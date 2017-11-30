@@ -1,0 +1,16 @@
+<h1>投稿を編集する</h1>
+<%= form_for (@movie) do |movie| %>
+  ムービーイメージ
+  <%= movie.text_field :image, class: '...' %>
+  タイトル
+  <%= movie.text_field :title, class: '...' %>
+  監督
+  <%= movie.text_field :director, class: '...' %>
+  主演
+  <%= movie.text_field :staff, class: '...' %>
+  ムービーレビュー
+  <%= movie.text_area :information, class: '...' %>
+  上映時間
+  <%= movie.text_field :time, class: '...' %>
+  <%= movie.submit "保存", class: '...' %>
+ <% end %>

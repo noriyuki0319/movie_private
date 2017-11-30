@@ -1,0 +1,5 @@
+{
+  "name": "movie_private",
+  "private": true,
+  "dependencies": {}
+}

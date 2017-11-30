@@ -1,0 +1,21 @@
+<ul>
+  <li>
+    <%= link_to user_path(@user) do %>
+      <div class="text">投稿数</div>
+      <div class="num"><%= @user.movies.count %></div>
+    <% end %>
+  </li>
+</ul>
+
+<% @user.movies.each do |movie| %>
+  <h4 class="user">
+    <span class="user-name">
+      <%= link_to movie.user.email, user_path(movie.user) %>
+    </span>
+  <span class="user-id"><%= movie.user.email %></span>
+  </h4>
+  <div class="movie-body">
+    <%= movie.title %>
+  </div>
+
+<% end %>

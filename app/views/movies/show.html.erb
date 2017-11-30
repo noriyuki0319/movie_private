@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ムービーイメージ:</strong>
+  <%= @movie.image %>
+</P>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @movie.title %>
+</p>
+
+<p>
+  <strong>監督:</strong>
+  <%= @movie.director %>
+</p>
+
+<p>
+  <strong>主演:</strong>
+  <%= @movie.staff %>
+</p>
+
+<p>
+  <strong>ムービーレビュー:</strong>
+  <%= @movie.information %>
+</p>
+
+<p>
+  <strong>上映時間:</strong>
+  <%= @movie.time %>
+</p>
+
+<% if current_user.id == @movie.user_id %>
+  <%= link_to '編集' , edit_movie_path(@movie) %> |
+  <%= link_to '消去', @movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+<%= link_to '戻る', movies_path %>
