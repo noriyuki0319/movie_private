@@ -4,7 +4,17 @@ class MoviesController < ApplicationController
   before_action :correct_user, only:[:edit, :update]
 
   def index
-    @movies = Movie.all
+    if params[:keyword].present?
+
+
+      # Amazon::Ecs::Responceオブジェクトの取得
+      @movies = ITunesSearchAPI.search(
+        :term => params[:keyword],
+        :country => 'jp',
+        :media => 'movie',
+        :lang => 'ja_jp',
+        :limit => '10')
+    end
   end
 
   def show

@@ -2,32 +2,19 @@
 
 <h1>Movies</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ムービーイメージ</th>
-      <th>タイトル</th>
-      <th>監督</th>
-      <th>主演</th>
-      <th>ムービーレビュー</th>
-      <th>上映時間</th>
-      <th colspan="5"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @movies.each do |movie| %>
-      <tr>
-        <td><%= movie.image %></td>
-        <td><%= link_to movie.title, movie_path(movie) %></td>
-        <td><%= movie.director %></td>
-        <td><%= movie.staff %></td>
-        <td><%= movie.information %></td>
-        <td><%= movie.time %></td>
-      </tr>
+<div class='content'>
+  <div id="search-movie">
+    <%= form_tag('/', method: :get) do %>
+        <%= text_field_tag :movie, "",  id: "movie_search", name: "keyword", placeholder: "キーワードを打ち込んでください", style: "width: 200px;"%><button title="検索" type="submit">検索</button>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <h2>検索結果</h2>
+  <div id='movie_list'>
+    <!-- コメントアウトしておく -->
+    <%= render :partial => 'movie_list' %>
+
+  </div>
+</div>
 
 <br>
 

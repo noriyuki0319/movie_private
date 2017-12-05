@@ -23,6 +23,15 @@ gem 'therubyracer', platforms: :ruby
 
 gem 'devise'
 
+gem 'itunes-search-api'
+
+# CarrierWave
+gem 'carrierwave'
+# RMagick
+gem 'rmagick'
+# Config
+gem 'config'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -43,6 +52,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 
 group :development do
