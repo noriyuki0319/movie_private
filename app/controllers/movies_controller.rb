@@ -1,13 +1,10 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only:[:show, :edit, :update, :destroy]
+  before_action :set_movie, only:[:edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :correct_user, only:[:edit, :update]
 
   def index
     if params[:keyword].present?
-
-
-      # Amazon::Ecs::Responceオブジェクトの取得
       @movies = ITunesSearchAPI.search(
         :term => params[:keyword],
         :country => 'jp',
@@ -15,6 +12,15 @@ class MoviesController < ApplicationController
         :lang => 'ja_jp',
         :limit => '10')
     end
+  end
+
+  def search
+    @movie = ITunesSearchAPI.search(
+        :term => params[:keyword],
+        :country => 'jp',
+        :media => 'movie',
+        :lang => 'ja_jp',
+        :limit => '10')
   end
 
   def show

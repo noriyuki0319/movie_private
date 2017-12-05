@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<% @movie.each do |movie| %>
+  <%= image_tag movie["artworkUrl100"] %>
+  <%= movie["trackName"] %><br>
+  <%= movie["artistName"] %><br>
+  <%= movie["shortDescription"] %><br>
+  <%= video_tag movie["previewUrl"], :autoplay => true, :controls => true %><br>
+  <%= movie["longDescription"] %>
+<% end %>
+
+

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users
+  get 'movies/search', as: 'movies_search'
   resources :movies
   root 'movies#index'
 end
