@@ -1,16 +1,24 @@
-<h1>新規投稿<h1>
 <%= form_for (@movie) do |movie| %>
-  ムービーイメージ
-  <%= movie.text_field :image, class: "..." %>
+<% @search.each do |search| %>
+  <% @time = (Time.parse("1/1") + search["trackTimeMillis"]/1000).strftime("%-H時間%-M分") %>
+  <% @when = search["releaseDate"].to_time %>
+  <%= image_tag search["artworkUrl100"] %>
+  <%= movie.hidden_field :image, class: "...", value: search["artworkUrl100"], readonly:true %>
   タイトル
-  <%= movie.text_field :title, class: "..." %>
+  <%= movie.text_field :title, class: "...", value: search["trackName"], readonly:true, size: "200" %><br>
   監督
-  <%= movie.text_field :director, class: "..." %>
-  主演
-  <%= movie.text_field :staff, class: "..." %>
+  <%= movie.text_field :director, class: "..." , value: search["artistName"], readonly:true, size:"200" %><br>
   ムービーレビュー
-  <%= movie.text_area :information, class: "..." %>
+  <%= movie.text_area :information, class: "...", value: search["shortDescription"], readonly:true, size: "200 x 5" %><br>
+  <%= video_tag search["previewUrl"], :autoplay => true, :controls => true %><br>
+  <%= search["longDescription"] %><br>
+  カテゴリー
+  <%= movie.text_field :category_id, class: "...", value: search["primaryGenreName"], readonly: true, size: "200" %><br>
   上映時間
-  <%= movie.text_field :time, class: "..." %>
-  <%= movie.submit "保存", class: "..." %>
+  <%= movie.text_field :time, class: "...", value: @time, readonly:true %><br>
+  リリース日
+  <%= movie.text_field :when, class: "...", value: "#{@when.year}年#{@when.month}月", readonly: true, size: "200" %><br>
+  <%= movie.submit "保存", class: "..." %><br>
+  <% end %>
 <% end %>
+

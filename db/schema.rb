@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20171130080757) do
     t.string "image"
     t.string "title"
     t.string "director"
-    t.string "staff"
+    t.string "when"
     t.text "information"
     t.string "time"
-    t.integer "category_id"
+    t.string "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

@@ -1,11 +1,11 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only:[:edit, :update, :destroy]
+  before_action :set_movie, only:[:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :correct_user, only:[:edit, :update]
 
   def index
     if params[:keyword].present?
-      @movies = ITunesSearchAPI.search(
+      @searches = ITunesSearchAPI.search(
         :term => params[:keyword],
         :country => 'jp',
         :media => 'movie',
@@ -14,23 +14,20 @@ class MoviesController < ApplicationController
     end
   end
 
-  def search
-    @movie = ITunesSearchAPI.search(
+  def new
+    @search = ITunesSearchAPI.search(
         :term => params[:keyword],
         :country => 'jp',
         :media => 'movie',
         :lang => 'ja_jp',
         :limit => '10')
+    @movie = Movie.new
   end
 
   def show
   end
 
   def edit
-  end
-
-  def new
-    @movie = Movie.new
   end
 
   def create

@@ -1,8 +1,8 @@
-<% if @movies.present? %>
-  <% @movies.each do |movie| %>
-    <%= image_tag movie["artworkUrl100"] %>
-    <%= link_to movie["trackName"], movies_search_path(keyword: movie["trackId"]) %><br>
-    <%= movie["shortDescription"] %><br>
+<% if @searches.present? %>
+  <% @searches.each do |search| %>
+    <%= image_tag search["artworkUrl100"] %>
+    <%= link_to search["trackName"], new_movie_path(keyword: search["trackId"]) %><br>
+    <%= search["shortDescription"] %><br>
   <% end %>
 
 <% end %>

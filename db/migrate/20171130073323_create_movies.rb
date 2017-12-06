@@ -4,10 +4,10 @@ class CreateMovies < ActiveRecord::Migration[5.1]
       t.string :image
       t.string :title
       t.string :director
-      t.string :staff
+      t.string :when
       t.text :information
       t.string :time
-      t.integer :category_id
+      t.string :category_id
 
       t.timestamps
     end

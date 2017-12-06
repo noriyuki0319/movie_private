@@ -15,7 +15,13 @@
   <span class="user-id"><%= movie.user.email %></span>
   </h4>
   <div class="movie-body">
-    <%= movie.title %>
+    <%= image_tag movie.image %><br>
+    <%= movie.title %><br>
+    <%= movie.director %><br>
+    <%= movie.category_id %>
+    <%= movie.when %><br>
+    <%= movie.time %><br>
+    <%= movie.information %>
   </div>
 
 <% end %>
