@@ -1,3 +1,13 @@
+<div id="comments" style="display: none"><%= render partial: 'tweet_list' %></div>
+<script>
+var flip = 0;
+$("button").click(function () {
+$("#comments").toggle(2000)( flip++ % 2 == 0 );
+});
+</script>
+
+
+
 <%= form_for (@movie) do |movie| %>
 <% @search.each do |search| %>
   <% @time = (Time.parse("1/1") + search["trackTimeMillis"]/1000).strftime("%-H時間%-M分") %>
@@ -22,3 +32,5 @@
   <% end %>
 <% end %>
 
+
+<button>check out!</button>

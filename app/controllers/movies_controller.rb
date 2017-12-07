@@ -22,19 +22,18 @@ class MoviesController < ApplicationController
         :lang => 'ja_jp',
         :limit => '10')
     @movie = Movie.new
-  end
 
-  def search
-      client = Twitter::REST::Client.new do |config|
+    client = Twitter::REST::Client.new do |config|
       # 事前準備で取得したキーのセット
       config.consumer_key         = "UPcnTR1QtCePddkiKYAcOdzBI"
       config.consumer_secret      = "NMMBD5drfR7kORj3wYWGJehDosut1s11KlO1v6be4aAxMsGh1L"
     end
-    if params[:keyword].present?
-      # リツイートを除く、検索ワードにひっかかった最新10件のツイートを取得する
-      @result_tweets = client.search(params[:keyword], count: 10, result_type: "recent", exclude: "retweets" )
+    if params[:keyword2].present?
+      @result_tweets = client.search(params[:keyword2], count: 30, result_type: "recent", exclude: "retweets" )
+      binding.pry
     end
   end
+
 
   def show
   end

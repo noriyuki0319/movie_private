@@ -1,7 +1,7 @@
 <% if @searches.present? %>
   <% @searches.each do |search| %>
     <%= image_tag search["artworkUrl100"] %>
-    <%= link_to search["trackName"], new_movie_path(keyword: search["trackId"]) %><br>
+    <%= link_to search["trackName"], new_movie_path(keyword: search["trackId"], keyword2: "映画" + search["trackName"].delete("(（吹替字幕版）)")) %><br>
     <%= search["shortDescription"] %><br>
   <% end %>
 
