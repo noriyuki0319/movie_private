@@ -1,0 +1,6 @@
+<% if @result_tweets.present? %>
+  <h2>検索結果</h2>
+	<% @result_tweets.take(10).each_with_index do |tw| %> 
+		<%= "●: #{tw.full_text}" %><br>
+	<% end %>
+<% end %>
