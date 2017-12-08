@@ -1,6 +1,6 @@
 <h2>タイトル</h2>
 <p><%= @post.title %><br>
 <%= link_to "編集", edit_post_path(@post.id), class: "..." %>
-<%= link_to "削除", desroy_post_path(@post.id), method: :delete, class: "...", "data-confirm" => "本当に削除しますか？" %>
+<%= link_to "削除", post_path(@post.id), method: :delete, class: "...", "data-confirm" => "本当に削除しますか？" %>
 
 <%= link_to "一覧", posts_path, class: "..." %>
