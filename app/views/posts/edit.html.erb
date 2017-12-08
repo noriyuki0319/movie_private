@@ -1,0 +1,8 @@
+<h1>投稿を編集する</h1>
+<%= form_for(@post) do |f| %>
+  タイトル
+  <%= f.test_field :title, class: "..." %>
+  <%= f.submit "保存", class: "..." %>
+<% end %>
+
+<%= link_to "戻る", post_path, class: "..." %>

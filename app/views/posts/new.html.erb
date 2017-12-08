@@ -1,0 +1,8 @@
+<h1>新規投稿</h1>
+<%= form_for (@post) do |post| %>
+  タイトル
+  <%= post.text_field :title, class: "..." %>
+  <%= post.submit "保存", class: "..." %>
+<% end %>
+
+<%= link_to "トークルーム", posts_path, class: "..." %>

@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :movies
+  resources :posts
+  resources :comments
   root 'movies#index'
 end

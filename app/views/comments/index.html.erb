@@ -1,0 +1,7 @@
+<h1>投稿一覧</h1>
+<% @comments.each do |comment| %>
+  <p>タイトル</p>
+  <span>
+    <%= link_to comment.talk, comment_path(comment.id) %>
+  </span>
+<% end %>
