@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   def edit
@@ -38,7 +39,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :user_id)
+    params.require(:post).permit(:title)
   end
 
 end

@@ -11,8 +11,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
+    @comment.post_id = params[:post_id]
     @comment.save
-    redirect_to comment_path(@comment.id)
+    redirect_to post_path(@comment.post_id)
   end
 
   def show
@@ -32,12 +34,12 @@ class CommentsController < ApplicationController
   end
 
   private
-  def set_post
+  def set_comment
     @comment = Comment.find(params[:id])
   end
 
-  def post_params
-    params.require(:comment).permit(:talk, :user_id, :post_id)
+  def comment_params
+    params.require(:comment).permit(:talk)
   end
 
 end

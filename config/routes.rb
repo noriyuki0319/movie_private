@@ -3,9 +3,11 @@ Rails.application.routes.draw do
 
   get 'users/show'
   devise_for :users
-  resources :users
   resources :movies
-  resources :posts
-  resources :comments
+  resources :users
+    resources :posts do
+      resources :comments do
+    end
+  end
   root 'movies#index'
 end

@@ -30,7 +30,6 @@ class MoviesController < ApplicationController
     end
     if params[:keyword2].present?
       @result_tweets = client.search(params[:keyword2], count: 30, result_type: "recent", exclude: "retweets" )
-      binding.pry
     end
   end
 
