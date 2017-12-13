@@ -13,7 +13,49 @@
 	margin: 0 auto;
 }
 
-.wrap_nav {
-  width:90%;
-  margin: 0 auto;
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+nav{
+  background-color: orange;
+  padding: 0% 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.image_file{
+	margin: 0 auto;
+	padding: 0;
+	float: left;
 }

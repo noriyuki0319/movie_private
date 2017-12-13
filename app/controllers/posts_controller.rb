@@ -33,6 +33,9 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def google_map
+  end
+
   private
   def set_post
     @post = Post.find(params[:id])

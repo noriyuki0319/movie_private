@@ -10,21 +10,21 @@
 
   <body>
     <header>
-      <div class = wrap_nav>
       <nav>
           <%= link_to 'トップ', root_path %>
         <% if user_signed_in? %>
           Logged in as <%= current_user.email %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          <%= link_to "ムービー一覧", movies_path %>
           <%= link_to "マイページ", user_path(current_user) %>
         <% else %>
           <%= link_to "新規登録", new_user_registration_path %>
           <%= link_to "ログイン", new_user_session_path %>
         <% end %>
           <%= link_to "トークルーム", posts_path %>
+          <%= link_to "ムービー検索", movies_path %>
+          <%= link_to "twitter検索", twitter_search_path %>
+          <%= link_to "地図検索", google_maps_path %>
       </nav>
-      </div>
     </header>
 
    <%= yield %>

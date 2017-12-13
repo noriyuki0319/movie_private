@@ -1,3 +1,165 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.body_movie_new {
+	font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+}
+
+.background1 {
+  background-color: #467064;
+  color: white;
+}
+.background2 {
+  background-color: #381B1F;
+  color: #ffd700;
+}
+.background3 {
+  background-color: #333333;
+  color: white;
+}
+.background4 {
+  background-color: #374B9C;
+  color: #DE8AC9;
+}
+.background5 {
+  background-color: #00184C;
+  color: #C5CFFF;
+}
+
+.wrap_movie_new{
+	width: 90%;
+	margin: 0 auto;
+  font-weight: 100;
+}
+
+.movie_new_tittle{
+	text-align: center;
+	margin-top: 2%;
+}
+
+.movie-movie{
+	margin-top: 5%;
+	float: right;
+}
+
+.movie-shortdescription{
+	margin-top: 1px;
+}
+
+.movie-trackname {
+	margin-top: 1px;
+}
+
+.movie-when{
+	margin-top: 3px;
+}
+
+.movie-primary {
+	margin-top: 1p;
+}
+
+.movie-longdescription {
+	margin-top: 10px;
+}
+
+.movie_new_submit {
+	float: right;
+}
+
+.movie_new_submit1 {
+	float: right;
+	margin: 4px 1% 0% 1%;
+}
+
+.movie_new_button {
+	float: right;
+}
+
+.movie_new_button1 {
+	float: right;
+	padding: 2px;
+	margin: 6px 1% 2px 1%;
+}
+
+
+.wrap_tweet_list {
+  background-image: url(/assets/portrait.png);
+  background-size: 100%;
+  background-position: center center;
+  background-attachment: fixed;
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+  color: white;
+  border-radius: 40px;
+}
+
+h2.result_tweets{
+	text-align: center;
+	padding: 2% 0% 1% 0%;
+}
+
+.result_tweets1 {
+	padding: 0% 3% 2% 3%;
+}
+
+
+
+
+
+
+
+
+body.body_twitter {
+  background-image: url(/assets/question-mark.jpg);
+  background-size: 100%;
+  background-position: center center;
+  background-attachment: fixed;
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+}
+
+body.body_twitter:after {
+  content: "";
+  background: url(/assets/bg_alpha4.png) repeat center;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.wrap_twitter {
+	width: 81%;
+	margin: 0 auto;
+}
+
+.twitter-tittle{
+	color: #FFCC00;
+	padding: 50px;
+	text-align: center;
+}
+
+#search-box{
+	text-align: center;
+}
+
+#twitter_search_list{
+	padding-top: 30px;
+	color: #00CC00;
+}
+
+.twitter_serach_list_jquery {
+	background-color: #333333;
+	border-radius: 40px;
+	padding: 1%;
+}
+
+.twitter_search_list_text {
+	padding: 2% 3%;
+	
+}
+
+.twitter_search_list_text2 {
+	margin-bottom: 50px;
+}

@@ -1,7 +1,11 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only:[:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
   before_action :correct_user, only:[:edit, :update]
+
+def sample
+  @movies = Movie.all
+end
+
 
   def index
     if params[:keyword].present?
@@ -30,6 +34,17 @@ class MoviesController < ApplicationController
     end
     if params[:keyword2].present?
       @result_tweets = client.search(params[:keyword2], count: 30, result_type: "recent", exclude: "retweets" )
+    end
+  end
+
+  def twittersearch
+    client = Twitter::REST::Client.new do |config|
+      # 事前準備で取得したキーのセット
+      config.consumer_key         = "UPcnTR1QtCePddkiKYAcOdzBI"
+      config.consumer_secret      = "NMMBD5drfR7kORj3wYWGJehDosut1s11KlO1v6be4aAxMsGh1L"
+    end
+    if params[:keyword].present?
+      @result_tweets = client.search(params[:keyword], count: 50, result_type: "recent", exclude: "retweets" )
     end
   end
 

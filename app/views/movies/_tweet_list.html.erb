@@ -1,6 +1,10 @@
-<% if @result_tweets.present? %>
-  <h2>検索結果</h2>
-	<% @result_tweets.take(30).each_with_index do |tw| %> 
-		<%= "●: #{tw.full_text}" %><br>
-	<% end %>
-<% end %>
+  <div class = "wrap_tweet_list">
+
+		<% if @result_tweets.present? %>
+		  <h2 class = "result_tweets">検索結果</h2>
+			<% @result_tweets.take(30).each_with_index do |tw| %> 
+				<div class = "result_tweets1"><%= "●: #{tw.full_text}" %></div>
+			<% end %>
+		<% end %>
+
+  </div>

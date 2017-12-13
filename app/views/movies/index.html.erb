@@ -5,7 +5,7 @@
 <div class='content'>
   <div id="search-movie">
     <%= form_tag('/', method: :get) do %>
-        <%= text_field_tag :movie, "",  id: "movie_search", name: "keyword", placeholder: "キーワードを打ち込んでください", style: "width: 200px;"%><button title="検索" type="submit">検索</button>
+        <%= text_field_tag :movie, "",  id: "movie_search", name: "keyword", placeholder: "キーワードを打ち込んでください", style: "width: 400px;" "height: 20px;"%><button title="検索" type="submit">検索</button>
     <% end %>
   </div>
   <h2>検索結果</h2>
@@ -15,9 +15,4 @@
 
   </div>
 </div>
-
-
-<%= render :partial => 'google_map' %>
-
-
 

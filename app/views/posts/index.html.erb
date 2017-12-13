@@ -1,60 +1,24 @@
 <body class = "body_post">
   <div class = "wrap">
 
-<h1>投稿一覧</h1>
-<% @posts.each do |post| %>
-  <p>タイトル</p>
-  <span>
-    <%= link_to post.title, post_path(post.id) %>
-  </span>
+    <h1 class = h1_post>トークテーマ一覧</h1>
+
+<% if user_signed_in? %>
+	<%= link_to "新規投稿", new_post_path, class:"post_new_title" %>
 <% end %>
 
 <br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-das<br>
-br
-dsad
-dasd
-dasd
-dsadas
-dsad
-as
-sa
-<%= link_to "新規投稿", new_post_path, class:"..." %>
 
-
+<div class = "clearfix">
+	<% @posts.each do |post| %>
+		<p class = "kaiwa-text, clearfix">
+			<div class = "kaiwa-text-not-user">
+	    	<%= link_to post.title, post_path(post.id), class: "kaiwa_text" %>
+	    </div>
+	  </p>
+	<% end %>
+</div>
 
   </div>
-</div>
+</body>
+

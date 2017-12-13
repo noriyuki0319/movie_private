@@ -1,9 +1,11 @@
+$color-pink: #FFAD90;
+
 body.body_post {
   background-image: url(/assets/basketball.jpg);
-  background-size: cover;
+  background-size: 102%;
   background-position: center center;
   background-attachment: fixed;
-  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
 }
 
 body.body_post:after {
@@ -17,4 +19,157 @@ body.body_post:after {
   top: 0;
   z-index: -1;
 }
+
+.h1_post {
+  font-size: 20px;
+	color: $color-pink;
+	text-align: center;
+}
+
+.post_new_title {
+  text-decoration: none;
+  color: #33CC33;
+}
+
+/*--------------------
+ 吹き出しを作る
+--------------------*/
+/* 全体のスタイル */
+.kaiwa {
+  margin-bottom: 25px;
+}
+
+.kaiwa_text {
+  color: black;
+  font-size: 25px;
+  word-wrap: break-all;
+  text-decoration: none;
+}
+
+.kaiwa_text:hover {
+  color: #4400FF;
+  text-decoration: none;
+}
+
+p.kaiwa_text1 {
+  font-size: 15px;
+  word-wrap: break-all;
+}
+
+p.kaiwa_text2 {
+  font-size: 15px;
+  word-wrap: break-all;
+}
+
+
+/* 左からの吹き出しテキスト */
+.kaiwa-text-left {
+  position: relative;
+  margin-left: 80px;
+  padding: 6px 10px 6px 10px;
+  border-radius: 10px;
+  background: #eee;
+  margin-right: 12%;
+  margin-bottom: 1%;
+  float: left;
+}
+/* 右からの吹き出しテキスト */
+.kaiwa-text-right {
+  position: relative;
+  margin-right: 80px;
+  padding: 6px 10px 6px 10px;
+  border-radius: 10px;
+  background-color: #9cd6e7;
+  margin-left: 12%;
+  margin-bottom: 1%;
+  float: right;
+}
+
+p.kaiwa-text {
+  margin: 0 0 20px;
+}
+
+p.kaiwa-text:last-child {
+  margin-bottom: 0;
+}
+/* 左の三角形を作る */
+.kaiwa-text-left:before {
+  position: absolute;
+  content: '';
+  border: 10px solid transparent;
+  top: 15px;
+  left: -20px;
+}
+
+.kaiwa-text-left:after {
+  position: absolute;
+  content: '';
+  border: 10px solid transparent;
+  border-right: 10px solid #eee;
+  top: 7px;
+  left: -19px;
+}
+/* 右の三角形を作る */
+.kaiwa-text-right:before {
+  position: absolute;
+  content: '';
+  border: 10px solid transparent;
+  top: 15px;
+  right: -20px;
+}
+
+.kaiwa-text-right:after {
+  position: absolute;
+  content: '';
+  border: 10px solid transparent;
+  border-left: 10px solid #9cd6e7;
+  top: 7px;
+  right: -19px;
+}
+/* 回り込み解除 */
+.kaiwa:after,.kaiwa:before {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.kaiwa-text-not-user {
+  position: relative;
+  margin-left: 80px;
+  padding: 6px 10px 6px 10px;
+  border-radius: 10px;
+  background: #9cd6e7;
+  margin-right: 12%;
+  margin-bottom: 1%;
+  float: left;
+}
+
+/* 左の三角形を作る */
+.kaiwa-text-not-user:before {
+  position: absolute;
+  content: '';
+  border: 10px solid transparent;
+  top: 15px;
+  left: -20px;
+}
+
+.kaiwa-text-not-user:after {
+  position: absolute;
+  content: '';
+  border: 10px solid transparent;
+  border-right: 10px solid #9cd6e7;
+  top: 7px;
+  left: -19px;
+}
+
+.google_map {
+  color: #FFCC00;
+  background-color: #009900;
+  text-align: center;
+  padding: 30px 0px 40px 0px;
+  margin: 20px 0px;
+}
+
+
+
 
