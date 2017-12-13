@@ -1,6 +1,8 @@
 <body class = "body_post">
   <div class = "wrap">
 
+    <%= link_to "ページ最下部へ移動", "#comment_submit", { :id => "comment_submit1"} %>
+
     <h1 class = "h1_post" ><%= @post.title %></h1>
 <br>
 
@@ -13,7 +15,7 @@
 <% if user_signed_in? %>
   <%= form_for( [@post, @comment] ) do |comment| %>
     <%= comment.text_area :talk, class: "..." %>
-    <%= comment.submit "投稿" %>
+    <div id = "comment_submit"><%= comment.submit "投稿" %></div>
   <% end %>
 <% end %>
 
@@ -26,5 +28,4 @@
 
   </div>
 </body>
-
 

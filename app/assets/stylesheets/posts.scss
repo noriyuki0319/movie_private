@@ -21,14 +21,16 @@ body.body_post:after {
 }
 
 .h1_post {
-  font-size: 20px;
+  font-size: 30px;
 	color: $color-pink;
 	text-align: center;
+  margin: 3%;
 }
 
 .post_new_title {
   text-decoration: none;
   color: #33CC33;
+  float: right;
 }
 
 /*--------------------
@@ -161,6 +163,19 @@ p.kaiwa-text:last-child {
   top: 7px;
   left: -19px;
 }
+
+nav.pagination{
+  background-color: transparent;
+  color: white;
+  margin: 2% 0% 5% 5%;
+  text-decoration: none;
+  font-size: 2vw;
+}
+
+
+
+
+
 
 .google_map {
   color: #FFCC00;

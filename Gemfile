@@ -34,6 +34,8 @@ gem 'config'
 gem 'twitter'
 #jqueryのgem
 gem 'jquery-rails'
+#kaminari
+gem 'kaminari', '~> 0.17.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

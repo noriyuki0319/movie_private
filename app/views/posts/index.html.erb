@@ -4,7 +4,7 @@
     <h1 class = h1_post>トークテーマ一覧</h1>
 
 <% if user_signed_in? %>
-	<%= link_to "新規投稿", new_post_path, class:"post_new_title" %>
+	<%= link_to "新しいトークテーマを作ろー！", new_post_path, class:"post_new_title" %>
 <% end %>
 
 <br>
@@ -16,9 +16,10 @@
 	    	<%= link_to post.title, post_path(post.id), class: "kaiwa_text" %>
 	    </div>
 	  </p>
-	<% end %>
+  <% end %>
 </div>
 
   </div>
+<%= paginate @posts %>
 </body>
 

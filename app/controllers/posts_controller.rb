@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_post, only:[:show, :edit, :update, :destroy]
 
+  PER = 20
+
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(PER)
   end
 
   def new
