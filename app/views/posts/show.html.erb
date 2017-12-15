@@ -1,7 +1,8 @@
 <body class = "body_post">
   <div class = "wrap">
-
-    <%= link_to "ページ最下部へ移動", "#comment_submit", { :id => "comment_submit1"} %>
+  	<% if current_user.id == @post.user.id %>
+		<%= link_to "トークタイトルを削除する", post_path(@post.id), method: :delete, class: "talk_title_destroy", "data-confirm" => "タイトル および トーク内容の全てが削除されます。本当に削除しますか？" %>
+		<% end %>
 
     <h1 class = "h1_post" ><%= @post.title %></h1>
 <br>
@@ -21,10 +22,9 @@
 
 <br>
 
-<%= link_to "編集", edit_post_path(@post.id), class: "..." %>
-<%= link_to "削除", post_path(@post.id), method: :delete, class: "...", "data-confirm" => "本当に削除しますか？" %>
 
-<%= link_to "一覧", posts_path, class: "..." %>
+
+<%= link_to "戻る", posts_path, class: "..." %>
 
   </div>
 </body>
