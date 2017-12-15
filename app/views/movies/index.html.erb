@@ -1,6 +1,12 @@
-<p id="notice"><%= notice %></p>
+<body class = "body_movie_index">
+  
 
-<h1>Movies</h1>
+<p id="notice"><%= notice %></p>
+<div class = "movie_index_title">
+  <h1>★ 好きな映画・気になる映画を調べちゃお〜！</h1>
+</div>
+
+<div class = "wrap_movie_index">
 
 <div class='content'>
   <div id="search-movie">
@@ -8,11 +14,41 @@
         <%= text_field_tag :movie, "",  id: "movie_search", name: "keyword", placeholder: "キーワードを打ち込んでください", style: "width: 400px;" "height: 20px;"%><button title="検索" type="submit">検索</button>
     <% end %>
   </div>
-  <h2>検索結果</h2>
   <div id='movie_list'>
-    <!-- コメントアウトしておく -->
-    <%= render :partial => 'movie_list' %>
-
+     <% if @searches.present? %>
+     <div id = "movie_serach_list_jquery" style="display: none">
+     <h2 class = "movie_list_text">検索結果</h2>
+     <% @searches.each do |search| %>
+      <div class = "movie_list_search">
+        <%= link_to image_tag(search["artworkUrl100"]), new_movie_path(keyword: search["trackId"], keyword2: "映画" + search["trackName"].delete("(（吹替字幕版）)")) %>
+        <%= link_to search["trackName"], new_movie_path(keyword: search["trackId"], keyword2: "映画" + search["trackName"].delete("(（吹替字幕版）)")), class: "movie_search_link" %><br>
+       <%= search["shortDescription"] %><br>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
   </div>
 </div>
 
+
+  </div>
+</body>
+
+<script>
+var flip = 0;
+$("button").click(function () {
+$("#search-movie").toggle(500)( flip++ % 2 == 0 );
+});
+</script>
+<script>
+var flip = 0;
+$(document).ready( function(){
+$("#movie_serach_list_jquery").toggle(1500)( flip++ % 2 == 0 );
+});
+</script>
+<script>
+  $(function () {
+  var num = Math.ceil(5 * Math.random());
+  $('#body_movie_new').addClass('background' + num);
+});
+</script>

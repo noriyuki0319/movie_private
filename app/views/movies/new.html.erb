@@ -1,4 +1,4 @@
-<body class = "body_movie_new">
+<body id = "body_movie_new">
   <div class = "wrap_movie_new">
 
 <div id="comments" style="display: none"><%= render partial: 'tweet_list' %></div>
@@ -12,7 +12,7 @@ $("#comments").toggle(2000)( flip++ % 2 == 0 );
 <h1 class = "movie_new_tittle">作品紹介</h1>
 
 <div class = "clearfix">
-<button class = "movie_new_button1">check out!</button><p class = "movie_new_button">★ この映画に対するつぶやきを見てみよう！ ※ネタバレには注意！"</p>
+<button class = "movie_new_button1">check out!</button><p class = "movie_new_button">★ この映画に対するつぶやきを見てみよう！ ※ネタバレには注意！！</p>
 </div>
 
 <%= form_for (@movie) do |movie| %>
@@ -59,10 +59,10 @@ $("#comments").toggle(2000)( flip++ % 2 == 0 );
 </body>
 
 <script>
-  $(function () {
+  (function ($) {
   var num = Math.ceil(5 * Math.random());
-  $('.body_movie_new').addClass('background' + num);
-});
+  $('#body_movie_new').addClass('background' + num);
+})(jQuery);
 </script>
 
 

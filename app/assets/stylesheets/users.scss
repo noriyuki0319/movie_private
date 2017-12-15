@@ -1,3 +1,43 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body.body_user_show {
+  background-image: url(/assets/portrait.png);
+  background-size: 103%;
+  background-position: center center;
+  background-attachment: fixed;
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+  color: white;
+}
+
+body.body_user_show:after {
+  content: "";
+  background: url(/assets/bg_alpha4.png) repeat center;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.wrap_user_show {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.text_user {
+	color: white;
+	margin-top: 5%;
+}
+
+.num_user{
+	color: white;
+}
+
+.user_movie_body{
+	margin-top: 5%;
+}

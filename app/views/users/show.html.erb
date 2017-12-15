@@ -1,27 +1,26 @@
-<ul>
-  <li>
+<body class = "body_user_show">
+  <div class = "wrap_user_show">
+
+
     <%= link_to user_path(@user) do %>
-      <div class="text">投稿数</div>
-      <div class="num"><%= @user.movies.count %></div>
+      <div class="text_user">メモ数</div>
+      <div class="num_user"><%= @user.movies.count %></div>
     <% end %>
-  </li>
-</ul>
+
 
 <% @user.movies.each do |movie| %>
-  <h4 class="user">
-    <span class="user-name">
-      <%= link_to movie.user.email, user_path(movie.user) %>
-    </span>
-  <span class="user-id"><%= movie.user.email %></span>
-  </h4>
-  <div class="movie-body">
-    <%= image_tag movie.image %><br>
+  <div class="user_movie_body">
+    <%= image_tag movie.image %>
     <%= movie.title %><br>
     <%= movie.director %><br>
     <%= movie.category_id %><br>
     <%= movie.when %><br>
     <%= movie.time %><br>
-    <%= movie.information %>
+    <%= movie.information %><br>
+    <%= link_to "削除", user_path(@user.id), method: :delete, class: "...", "data-confirm" => "本当に削除しますか？" %>
   </div>
 
 <% end %>
+
+</div>
+</body>

@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only:[:show, :edit, :update, :destroy]
   before_action :correct_user, only:[:edit, :update]
+  before_action :authenticate_user!, only:[:create]
 
 def sample
   @movies = Movie.all
@@ -14,7 +15,7 @@ end
         :country => 'jp',
         :media => 'movie',
         :lang => 'ja_jp',
-        :limit => '10')
+        :limit => '50')
     end
   end
 
@@ -59,7 +60,7 @@ end
     @movie = Movie.new(movie_params)
     @movie.user_id = current_user.id
     @movie.save
-    redirect_to movie_path(@movie.id)
+    redirect_to user_path(@movie.user_id)
   end
 
   def update
