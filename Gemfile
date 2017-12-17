@@ -24,6 +24,8 @@ gem 'therubyracer', platforms: :ruby
 gem 'devise'
 #ituneのAPI
 gem 'itunes-search-api'
+# wikipedia
+gem 'wikipedia-client'
 # CarrierWave
 gem 'carrierwave'
 # RMagick

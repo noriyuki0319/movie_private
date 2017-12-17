@@ -24,7 +24,7 @@ body.body_post:after {
   font-size: 30px;
 	color: $color-pink;
 	text-align: center;
-  margin: 3%;
+  margin: 2%;
 }
 
 .post_new_title {
@@ -37,6 +37,17 @@ body.body_post:after {
   float: right;
   text-decoration: none;
   color: #33CC33;
+}
+
+.talk_from {
+  margin-bottom: 3%;
+}
+
+.talk_from_link_back {
+  color: white;
+  font-size: 3px;
+  margin: 1% 0% 0% 1%;
+  text-decoration: none;
 }
 
 /*--------------------
@@ -60,9 +71,15 @@ body.body_post:after {
   text-decoration: none;
 }
 
-p.kaiwa_text1 {
+.kaiwa_text1 {
+  color: black;
   font-size: 15px;
+  text-decoration: none;
   word-wrap: break-all;
+}
+
+.kaiwa_text1:hover {
+  color: blue;
 }
 
 p.kaiwa_text2 {

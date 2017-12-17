@@ -1,30 +1,28 @@
 <body class = "body_post">
   <div class = "wrap">
-  	<% if current_user.id == @post.user.id %>
+
+ 	<% if current_user.id == @post.user.id %>
 		<%= link_to "トークタイトルを削除する", post_path(@post.id), method: :delete, class: "talk_title_destroy", "data-confirm" => "タイトル および トーク内容の全てが削除されます。本当に削除しますか？" %>
 		<% end %>
 
     <h1 class = "h1_post" ><%= @post.title %></h1>
-<br>
+  </div>
+
+  <% if user_signed_in? %>
+    <div class = "talk_from" %>
+      <%= form_for( [@post, @comment] ) do |comment| %>
+        <%= comment.text_area :talk, class: "...", size: "50x5" %>
+        <%= comment.submit "投稿" %><br>
+        <%= link_to "一覧に戻る", posts_path, class: "talk_from_link_back" %>
+      <% end %>
+    </div>
+  <% end %>
+
+<div class = "wrap">
 
 <div class = "clearfix">
   <%= render :partial => 'talk_room' %>
 </div>
-
-<br>
-
-<% if user_signed_in? %>
-  <%= form_for( [@post, @comment] ) do |comment| %>
-    <%= comment.text_area :talk, class: "..." %>
-    <div id = "comment_submit"><%= comment.submit "投稿" %></div>
-  <% end %>
-<% end %>
-
-<br>
-
-
-
-<%= link_to "戻る", posts_path, class: "..." %>
 
   </div>
 </body>

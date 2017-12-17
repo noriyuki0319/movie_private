@@ -1,2 +1,13 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
+
+<% if @recommend1.present? %>
+    <h2>検索結果</h2>
+  <% @recommend1.each do |re| %>
+    <%= image_tag(re["artworkUrl100"]) %>
+    <%= re["trackName"] %><br>
+    <%= re["shortDescription"] %><br>
+  <% end %>
+<% end %>
+
+

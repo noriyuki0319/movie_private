@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   resources :movies
   resources :users
     resources :posts do
-      resources :comments do
-    end
+      resources :comments
   end
   root 'movies#index'
 end
