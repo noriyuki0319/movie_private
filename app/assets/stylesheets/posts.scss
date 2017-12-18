@@ -20,11 +20,23 @@ body.body_post:after {
   z-index: -1;
 }
 
+.wrap1{
+  width: 50%;
+  margin: 0 auto;
+  float: left;
+}
+
+.wrap2{
+  width: 50%;
+  margin: 0auto;
+  float: right;
+}
+
 .h1_post {
   font-size: 30px;
 	color: $color-pink;
 	text-align: center;
-  margin: 2%;
+  margin: 1%;
 }
 
 .post_new_title {
@@ -196,7 +208,11 @@ nav.pagination{
   font-size: 2vw;
 }
 
-
+.twitter-tittle1 {
+  text-align: center;
+  color: #FFCC00;
+  font-size: 15px;
+}
 
 
 

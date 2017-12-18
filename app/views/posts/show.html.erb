@@ -1,12 +1,14 @@
 <body class = "body_post">
-  <div class = "wrap">
+  
+  <h1 class = "h1_post" ><%= @post.title %></h1>
+
+  <div class = "wrap1">
 
  	<% if current_user.id == @post.user.id %>
 		<%= link_to "トークタイトルを削除する", post_path(@post.id), method: :delete, class: "talk_title_destroy", "data-confirm" => "タイトル および トーク内容の全てが削除されます。本当に削除しますか？" %>
 		<% end %>
 
-    <h1 class = "h1_post" ><%= @post.title %></h1>
-  </div>
+
 
   <% if user_signed_in? %>
     <div class = "talk_from" %>
@@ -18,12 +20,18 @@
     </div>
   <% end %>
 
-<div class = "wrap">
+
 
 <div class = "clearfix">
   <%= render :partial => 'talk_room' %>
 </div>
 
-  </div>
+</div>
+
+<div class = "wrap2" %>
+  <%= render :partial => 'talk_room_twitter' %>
+</div>
+
+
 </body>
 

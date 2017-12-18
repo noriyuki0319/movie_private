@@ -19,7 +19,22 @@ class PostsController < ApplicationController
   end
 
   def show
+     client = Twitter::REST::Client.new do |config|
+      # 事前準備で取得したキーのセット
+      config.consumer_key         = "UPcnTR1QtCePddkiKYAcOdzBI"
+      config.consumer_secret      = "NMMBD5drfR7kORj3wYWGJehDosut1s11KlO1v6be4aAxMsGh1L"
+    end
     @comment = Comment.new
+    @xxx = @post.comments
+    @aaa = @xxx.each do |a|
+              a.talk
+    end
+    @ccc = @aaa.first
+    if @ccc.present?
+      if @ccc.talk.length >= 5 && @ccc.talk.length <= 10
+        @result_tweets1 = client.search(@ccc.talk, count: 30, result_type: "recent", exclude: "retweets" )
+      end
+    end
   end
 
   def edit
