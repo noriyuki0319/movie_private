@@ -1,13 +1,13 @@
 <body class = "body_twitter">
   <div class = "wrap_twitter">
 
-    <h1 class = "twitter-tittle1">★ トークを盛り上げるアシストをします〜！</h1>
+    <h1 class = "twitter-tittle1">★ トークを盛り上げるアシストをします！！</h1>
     <div class='content'>
 
       <div id='twitter_search_list'>
         <% if @result_tweets1.present? %>
           <div class = "twitter_serach_list_jquery" style="display: none"><h2 class = "twitter_search_list_text">検索結果</h2>
-        <% @result_tweets1.take(30).each_with_index do |tw| %>
+        <% @result_tweets1.take(25).each_with_index do |tw| %>
          <p class = "twitter_search_list_text2"><%= "●: #{tw.full_text}" %></p>
         <% end %>
       </div>

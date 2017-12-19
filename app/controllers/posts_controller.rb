@@ -29,10 +29,9 @@ class PostsController < ApplicationController
     @aaa = @xxx.each do |a|
               a.talk
     end
-    @ccc = @aaa.first
-    if @ccc.present?
-      if @ccc.talk.length >= 5 && @ccc.talk.length <= 10
-        @result_tweets1 = client.search(@ccc.talk, count: 30, result_type: "recent", exclude: "retweets" )
+    if @aaa.first.talk.present?
+      if @aaa.first.talk.length >= 10 && @aaa.first.talk.length <= 15
+        @result_tweets1 = client.search(@aaa.first.talk, count: 25, result_type: "recent", exclude: "retweets" )
       end
     end
   end

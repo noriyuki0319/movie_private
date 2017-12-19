@@ -17,6 +17,18 @@ end
         :lang => 'ja_jp',
         :limit => '50')
     end
+    if current_user.present?
+      if Movie.where(user_id: current_user.id).present?
+        @xxx = Movie.where(user_id: current_user.id)
+        @recommend = @xxx.order("RANDOM()").first
+          @recommend1 = ITunesSearchAPI.search(
+            :term => @recommend.director,
+            :country => 'jp',
+            :media => 'movie',
+            :lang => 'ja_jp',
+            :limit => '3')
+      end
+    end
   end
 
   def new

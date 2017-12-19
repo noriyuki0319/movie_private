@@ -6,7 +6,11 @@
   <h1>★ 好きな映画・気になる映画を調べちゃお〜！</h1>
 </div>
 
+
+
 <div class = "wrap_movie_index">
+
+
 
 <div class='content'>
   <div id="search-movie">
@@ -16,8 +20,8 @@
   </div>
   <div id='movie_list'>
      <% if @searches.present? %>
-     <div id = "movie_serach_list_jquery" style="display: none">
-     <h2 class = "movie_list_text">検索結果</h2>
+      <div id = "movie_serach_list_jquery" style="display: none">
+      <h2 class = "movie_list_text">検索結果</h2>
      <% @searches.each do |search| %>
       <div class = "movie_list_search">
         <%= link_to image_tag(search["artworkUrl100"]), new_movie_path(keyword: search["trackId"], keyword2: "映画" + search["trackName"].delete("(（吹替字幕版）)")) %>
@@ -28,10 +32,28 @@
     </div>
     <% end %>
   </div>
+
+  <div id = 'movie_list'>
+    <% if current_user.present? %>
+    <div id = "movie_serach_list_jquery" style="display: none">
+       <h2 class = "movie_list_text"><%= @current_user.email %>さんへのおすすめ映画です</h2>
+    <% @recommend1.each do |re| %>
+      <div class = "movie_list_search">
+        <%= link_to image_tag(re["artworkUrl100"]), new_movie_path(keyword: re["trackId"], keyword2: "映画" + re["trackName"].delete("(（吹替字幕版）)")) %>
+        <%= link_to re["trackName"],  new_movie_path(keyword: re["trackId"], keyword2: "映画" + re["trackName"].delete("(（吹替字幕版）)")), class: "movie_search_link" %><br>
+        <%= re["shortDescription"] %><br>
+      </div>
+    <% end %>
+    </div>
+    <% end %>
+  </div>
 </div>
 
 
-  </div>
+
+
+
+</div>
 </body>
 
 <script>

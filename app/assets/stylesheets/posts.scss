@@ -24,6 +24,7 @@ body.body_post:after {
   width: 50%;
   margin: 0 auto;
   float: left;
+  margin-top: 5%;
 }
 
 .wrap2{
@@ -36,7 +37,7 @@ body.body_post:after {
   font-size: 30px;
 	color: $color-pink;
 	text-align: center;
-  margin: 1%;
+  margin: 1% 5% 1% 0%;
 }
 
 .post_new_title {
@@ -52,7 +53,7 @@ body.body_post:after {
 }
 
 .talk_from {
-  margin-bottom: 3%;
+  margin: 0% 0% 3% 1%;
 }
 
 .talk_from_link_back {
@@ -103,7 +104,7 @@ p.kaiwa_text2 {
 /* 左からの吹き出しテキスト */
 .kaiwa-text-left {
   position: relative;
-  margin-left: 80px;
+  margin-left: 150px;
   padding: 6px 10px 6px 10px;
   border-radius: 10px;
   background: #eee;
@@ -114,7 +115,7 @@ p.kaiwa_text2 {
 /* 右からの吹き出しテキスト */
 .kaiwa-text-right {
   position: relative;
-  margin-right: 80px;
+  margin-right: 50px;
   padding: 6px 10px 6px 10px;
   border-radius: 10px;
   background-color: #9cd6e7;
