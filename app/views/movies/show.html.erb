@@ -1,0 +1,37 @@
+<body class = "body_user_show">
+  <div class = "wrap_user_show">
+
+
+  <div class="user_movie_body">
+    <%= image_tag @movie.image %>
+    <%= @movie.title %><br>
+    <%= @movie.director %><br>
+    <%= @movie.category_id %><br>
+    <%= @movie.when %><br>
+    <%= @movie.time %><br>
+    <%= @movie.information %><br>
+  </div>
+
+  <% @movie.reviews.each do |re| %>
+    <%= re.nickname %><br>
+    <%= re.ranking %><br>
+    <%= re.review %>
+  <% end %>
+
+  <div class = "movie_show_form">
+    <%= form_for( [@movie, @review] ) do |review| %>
+      ニックネーム
+      <%= review.text_field :nickname, class: "..." %><br>
+      評価
+      <div id = "star"></div>
+      <%= review.hidden_field :rating %>
+      レビュー
+      <%= review.text_area :review, class: "..." %>
+      <%= review.submit "投稿" %>
+    <% end %>
+  </div>
+
+</div>
+</body>
+
+

@@ -17,6 +17,7 @@
     <%= movie.when %><br>
     <%= movie.time %><br>
     <%= movie.information %><br>
+    <%= link_to "レビューを書く", movie_path(movie.id) %>
     <%= link_to "削除", movie_path(movie.id), method: :delete, class: "...", "data-confirm" => "本当に削除しますか？" %>
   </div>
 

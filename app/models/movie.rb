@@ -1,6 +1,6 @@
 class Movie < ApplicationRecord
   belongs_to :user
-
+  has_many :reviews
 # class Movie
 #   # プロパティの設定
 #   attr_accessor :contens

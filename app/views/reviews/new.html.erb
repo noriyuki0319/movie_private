@@ -1,0 +1,10 @@
+<h1>新規投稿</h1>
+<%= form_for (@review) do |review| %>
+  ニックネーム
+  <%= review.text_field :nickname, class: "..." %>
+  評価
+  <%= review.number_field :ranking, class: "..." %>
+  レビュー
+  <%= review.text_area :review, class: "..." %>
+  <%= review.submit "保存", class: "..." %>
+<% end %>

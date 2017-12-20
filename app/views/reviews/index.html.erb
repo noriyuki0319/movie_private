@@ -1,0 +1,7 @@
+<h1>投稿一覧</h1>
+<% @reviews.each do |review| %>
+  <p>ニックネーム</p>
+  <span>
+    <%= link_to review.nickname, review_path(review.id) %>
+  </span>
+<% end %>

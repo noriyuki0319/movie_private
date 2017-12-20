@@ -34,7 +34,7 @@
   </div>
 
   <div id = 'movie_list'>
-    <% if current_user.present? %>
+    <% if @recommend1.present? %>
     <div id = "movie_serach_list_jquery" style="display: none">
        <h2 class = "movie_list_text"><%= @current_user.email %>さんへのおすすめ映画です</h2>
     <% @recommend1.each do |re| %>

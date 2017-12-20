@@ -63,6 +63,7 @@ end
 
 
   def show
+    @review = Review.new
   end
 
   def edit

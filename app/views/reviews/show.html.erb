@@ -1,0 +1,8 @@
+<h2>ニックネーム</h2>
+<p><%= @review.nickname %></p>
+<h2>評価</h2>
+<p><%= @review.ranking %></p>
+<h2>レビュー</h2>
+<p><%= @review.review %></p>
+<%= link_to "編集", edit_review_path(@review.id), class: "..." %>
+<%= link_to "削除", review_path(@review.id), method: :delete, class: "...", "data-confirm" => "本当に削除しますか？" %>
