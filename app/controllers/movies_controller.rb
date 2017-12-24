@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
   before_action :correct_user, only:[:edit, :update]
   before_action :authenticate_user!, only:[:create]
 
+
 def sample
   @movies = Movie.all
 end
@@ -63,7 +64,6 @@ end
 
 
   def show
-    @review = Review.new
   end
 
   def edit

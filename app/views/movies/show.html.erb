@@ -1,7 +1,7 @@
 <body class = "body_user_show">
   <div class = "wrap_user_show">
 
-
+<%= link_to "新規投稿", new_movie_review_path(@movie,@review) %>
   <div class="user_movie_body">
     <%= image_tag @movie.image %>
     <%= @movie.title %><br>
@@ -12,26 +12,27 @@
     <%= @movie.information %><br>
   </div>
 
-  <% @movie.reviews.each do |re| %>
-    <%= re.nickname %><br>
-    <%= re.ranking %><br>
-    <%= re.review %>
-  <% end %>
 
-  <div class = "movie_show_form">
-    <%= form_for( [@movie, @review] ) do |review| %>
+
+
+  <div class="star_review">
+    <% @movie.reviews.each do |re| %>
       ニックネーム
-      <%= review.text_field :nickname, class: "..." %><br>
-      評価
-      <div id = "star"></div>
-      <%= review.hidden_field :rating %>
+      <%= re.nickname %>
+      <div class="star-rating" data-score=<%= re.rating %>></div>
       レビュー
-      <%= review.text_area :review, class: "..." %>
-      <%= review.submit "投稿" %>
+      <%= re.review %>
     <% end %>
   </div>
 
-</div>
+  <script>
+$('.star-rating').raty({
+  number: 10,
+  path: '/assets/',
+  readOnly: true,
+  score: function () {
+    return $(this).attr('data-score');
+  }
+});
+  </script>
 </body>
-
-

@@ -6,13 +6,13 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    @movie = Movie.find(params[:movie_id])
     @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    @review.movie_id = params[:movie_id]
     @review.save
     redirect_to movie_path(@review.movie_id)
   end
@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:review, :ranking, :nickname)
+    params.require(:review).permit(:review, :rating, :nickname).merge(movie_id: params[:movie_id])
   end
 
 end

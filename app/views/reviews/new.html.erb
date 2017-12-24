@@ -1,10 +1,15 @@
+<body class = "body_user_show">
+  <div class = "wrap_user_show">
+
 <h1>新規投稿</h1>
-<%= form_for (@review) do |review| %>
-  ニックネーム
-  <%= review.text_field :nickname, class: "..." %>
-  評価
-  <%= review.number_field :ranking, class: "..." %>
-  レビュー
-  <%= review.text_area :review, class: "..." %>
-  <%= review.submit "保存", class: "..." %>
-<% end %>
+    <%= form_for( [@movie, @review] ) do |review| %>
+      ニックネーム
+      <%= review.text_field :nickname, class: "..." %><br>
+      評価
+      <%= review.number_field :rating, value: 1, min: 1, max: 10 %>
+      レビュー
+      <%= review.text_area :review, class: "..." %>
+      <%= review.submit "投稿" %>
+    <% end %>
+</div>
+</body>
