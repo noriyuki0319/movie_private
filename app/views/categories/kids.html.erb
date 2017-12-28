@@ -1,0 +1,20 @@
+<body class = "body_user_show">
+  <div class = "wrap_user_show">
+
+
+<% @kids.each do |movie| %>
+  <div class="user_movie_body">
+    <%= image_tag movie.image %>
+    <%= movie.title %><br>
+    <%= movie.director %><br>
+    <%= movie.category_id %><br>
+    <%= movie.when %><br>
+    <%= movie.time %><br>
+    <%= movie.information %><br>
+    <%= link_to "レビューを書く", movie_path(movie.id) %>
+  </div>
+
+<% end %>
+
+</div>
+</body>
