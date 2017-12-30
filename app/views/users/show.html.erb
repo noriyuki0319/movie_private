@@ -17,10 +17,13 @@
     <%= movie.when %><br>
     <%= movie.time %><br>
     <%= movie.information %><br>
-    <%= link_to "レビューを書く", movie_path(movie.id) %>
+    <% if movie.reviews.present? %>
+      <%= link_to "詳細", movie_review_path(movie, movie.reviews.target) %>
+    <% else %>
+      <%= link_to "レビューを書く", new_movie_review_path(movie) %>
+    <% end %>
     <%= link_to "削除", movie_path(movie.id), method: :delete, class: "...", "data-confirm" => "本当に削除しますか？" %>
   </div>
-
 <% end %>
 
 </div>

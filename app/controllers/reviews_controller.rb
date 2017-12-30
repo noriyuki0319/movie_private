@@ -14,10 +14,11 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.save
-    redirect_to movie_path(@review.movie_id)
+    redirect_to movie_review_path(@review.movie_id, @review.id)
   end
 
   def show
+    @movie = Movie.find(params[:movie_id])
   end
 
   def edit

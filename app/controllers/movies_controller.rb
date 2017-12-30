@@ -62,8 +62,8 @@ end
     end
   end
 
-
   def show
+    @movie = Movie.joins(:reviews).where(title: params[:keyword])
   end
 
   def edit
@@ -72,8 +72,11 @@ end
   def create
     @movie = Movie.new(movie_params)
     @movie.user_id = current_user.id
-    @movie.save
-    redirect_to user_path(@movie.user_id)
+    if @movie.save
+      redirect_to user_path(@movie.user_id)
+    else
+      redirect_back(fallback_location: new_movie_path,notice:'既にmemoに登録されています。他の映画を検索しましょう。')
+    end
   end
 
   def update

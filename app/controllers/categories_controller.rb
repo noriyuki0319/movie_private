@@ -9,7 +9,6 @@ class CategoriesController < ApplicationController
 
   def drama
     @drama = Movie.joins(:reviews).where(category_id: "ドラマ").group("title")
-    binding.pry
   end
 
   def fantasy

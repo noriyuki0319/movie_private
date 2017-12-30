@@ -1,38 +1,38 @@
 <body class = "body_user_show">
   <div class = "wrap_user_show">
 
-<%= link_to "新規投稿", new_movie_review_path(@movie,@review) %>
-  <div class="user_movie_body">
-    <%= image_tag @movie.image %>
-    <%= @movie.title %><br>
-    <%= @movie.director %><br>
-    <%= @movie.category_id %><br>
-    <%= @movie.when %><br>
-    <%= @movie.time %><br>
-    <%= @movie.information %><br>
+    <div class="user_movie_body">
+      <% @movie.each do |movie| %>
+        <%= image_tag movie.image %>
+        <%= movie.title %><br>
+        <%= movie.director %><br>
+        <%= movie.category_id %><br>
+        <%= movie.when %><br>
+        <%= movie.time %><br>
+        <%= movie.information %><br>
+      <% end %>
+    </div>
+
+    <div class="star_review">
+        <% binding.pry %>
+      <% @movie.reviews.each do |re| %>
+        ニックネーム
+        <%= re.nickname %>
+        <div class="star-rating" data-score=<%= re.rating %>></div>
+        レビュー
+        <%= re.review %>
+      <% end %>
+    </div>
+
+    <script>
+    $('.star-rating').raty({
+    number: 10,
+    path: '/assets/',
+    readOnly: true,
+    score: function () {
+      return $(this).attr('data-score');
+      }
+    });
+    </script>
   </div>
-
-
-
-
-  <div class="star_review">
-    <% @movie.reviews.each do |re| %>
-      ニックネーム
-      <%= re.nickname %>
-      <div class="star-rating" data-score=<%= re.rating %>></div>
-      レビュー
-      <%= re.review %>
-    <% end %>
-  </div>
-
-  <script>
-$('.star-rating').raty({
-  number: 10,
-  path: '/assets/',
-  readOnly: true,
-  score: function () {
-    return $(this).attr('data-score');
-  }
-});
-  </script>
 </body>

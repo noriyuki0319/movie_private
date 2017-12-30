@@ -1,6 +1,8 @@
 class Movie < ApplicationRecord
   belongs_to :user
   has_many :reviews
+  default_scope -> { order(id: :desc) }
+  validates :user_id, :uniqueness => {:scope => :title}
 # class Movie
 #   # プロパティの設定
 #   attr_accessor :contens
