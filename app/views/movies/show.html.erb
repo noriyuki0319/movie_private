@@ -1,37 +1,36 @@
 <body class = "body_user_show">
   <div class = "wrap_user_show">
-
-    <div class="user_movie_body">
+    <div class="movie_table">
       <% @movie.each do |movie| %>
-        <%= image_tag movie.image %>
-        <%= movie.title %><br>
-        <%= movie.director %><br>
-        <%= movie.category_id %><br>
-        <%= movie.when %><br>
-        <%= movie.time %><br>
-        <%= movie.information %><br>
+        <%= link_to "戻る", categories_list_path(keyword: movie.category_id), class: "user_show_link" %>
+        <table>
+          <tr>
+            <th><%= image_tag movie.image %></th>
+            <td><%= movie.title %></td>
+          </tr>
+        </table>
       <% end %>
     </div>
 
-    <div class="star_review">
-      <% @review.each do |re| %>
-        ニックネーム
-        <%= re.nickname %>
-        <div class="star-rating" data-score=<%= re.rating %>></div>
-        レビュー
-        <%= re.review %>
-      <% end %>
-    </div>
+    <% @review.each do |re| %>
+      <div class="box27">
+        <span class="box-title"><%= re.nickname %> さんのレビュー</span>
+        <span class="star-rating" data-score=<%= re.rating %>></span>
+        <p><%= re.review %></p>
+      </div>
+    <% end %>
 
-    <script>
-    $('.star-rating').raty({
-    number: 10,
-    path: '/assets/',
-    readOnly: true,
-    score: function () {
-      return $(this).attr('data-score');
-      }
-    });
-    </script>
   </div>
 </body>
+
+<script>
+$('.star-rating').raty({
+  number: 10,
+  path: '/assets/',
+  readOnly: true,
+  score: function () {
+    return $(this).attr('data-score');
+  }
+});
+</script>
+

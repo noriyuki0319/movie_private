@@ -1,0 +1,38 @@
+<body class = "body_user_show">
+  <div class = "wrap_user_show">
+
+<% @category.each do |ca| %>
+  <div class="user_movie_body">
+  <%= link_to "レビューを見る", movie_path(ca.id, keyword: ca.track_id), class: "user_show_link" %>
+  <div class="movie_table">
+    <table>
+      <tr>
+        <th><%= image_tag ca.image %></th>
+        <td><%= ca.title %></td>
+      </tr>
+      <tr>
+        <th>監督</th>
+        <td><%= ca.director %></td>
+      </tr>
+      <tr>
+        <th>ジャンル</th>
+        <td><%= ca.category_id %></td>
+      </tr>
+      <tr>
+        <th>リリース日</th>
+        <td><%= ca.when %></td>
+      </tr>
+      <tr>
+        <th>再生時間</th>
+        <td><%= ca.time %> 日</td>
+      </tr>
+    </table>
+  </div>
+  <%= ca.information %>
+  </div>
+<% end %>
+
+
+
+</div>
+</body>
