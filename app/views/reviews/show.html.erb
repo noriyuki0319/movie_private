@@ -1,26 +1,37 @@
 <body class = "body_user_show">
   <div class = "wrap_user_show">
 
-  <div class="user_movie_body">
-    <%= image_tag @movie.image %>
-    <%= @movie.title %><br>
-    <%= @movie.director %><br>
-    <%= @movie.category_id %><br>
-    <%= @movie.when %><br>
-    <%= @movie.time %><br>
-    <%= @movie.information %><br>
-  </div>
+    <div class="movie_table">
+      <table>
+        <tr>
+          <th><%= image_tag @movie.image %></th>
+          <td><%= @movie.title %></td>
+        </tr>
+        <tr>
+          <th>監督</th>
+          <td><%= @movie.director %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @movie.category_id %></td>
+        </tr>
+        <tr>
+          <th>リリース日</th>
+          <td><%= @movie.when %></td>
+        </tr>
+        <tr>
+          <th>再生時間</th>
+          <td><%= @movie.time %> 日</td>
+        </tr>
+      </table>
+    </div>
+        <%= @movie.information %>
 
-
-
-
-  <div class="star_review">
+  <div class="box27">
     <% @movie.reviews.each do |re| %>
-      ニックネーム
-      <%= re.nickname %>
-      <div class="star-rating" data-score=<%= re.rating %>></div>
-      レビュー
-      <%= re.review %>
+      <span class="box-title"><%= re.nickname %> さんのレビュー</span>
+      <span class="star-rating" data-score=<%= re.rating %>></span>
+      <p><%= re.review %></p>
     <% end %>
   </div>
 
@@ -36,6 +47,6 @@ $('.star-rating').raty({
   </script>
 </body>
 
-<%= link_to "戻る", user_path(@movie.user_id) %>
-<%= link_to "編集", edit_review_path(@review.id), class: "..." %>
-<%= link_to "削除", review_path(@review.id), method: :delete, class: "...", "data-confirm" => "本当に削除しますか？" %>
+<%= link_to "レビューを削除", review_path(@review.id), method: :delete, class: "review_show_link", "data-confirm" => "本当に削除しますか？" %>
+<%= link_to "レビューを編集", edit_movie_review_path(@movie, @review.id), class: "review_show_link" %>
+<%= link_to "戻る", user_path(@movie.user_id), class: "review_show_link" %>

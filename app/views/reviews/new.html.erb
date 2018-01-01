@@ -1,15 +1,17 @@
 <body class = "body_user_show">
   <div class = "wrap_user_show">
 
-<h1>新規投稿</h1>
+<h2 class="review_form">レビュー投稿</h2>
     <%= form_for( [@movie, @review] ) do |review| %>
-      ニックネーム
-      <%= review.text_field :nickname, class: "..." %><br>
-      評価
+      <p class="review_form">★ ニックネーム</p>
+      <%= review.text_field :nickname, class: "...", :size => "40" %>
+      <p class="review_form">★ 評価（10段評価となります）</p>
       <%= review.number_field :rating, value: 1, min: 1, max: 10 %>
-      レビュー
-      <%= review.text_area :review, class: "..." %>
+      <p class="review_form">★ レビュー</p>
+      <%= review.text_area :review, :size => "100x10", class: "..." %>
+      <%= review.hidden_field :track_id, value: @movie.track_id, readonly:true %>
       <%= review.submit "投稿" %>
+      <%= link_to "戻る", user_path(@movie.user_id), class: "review_new_link" %>
     <% end %>
 </div>
 </body>

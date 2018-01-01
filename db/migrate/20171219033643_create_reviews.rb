@@ -6,6 +6,7 @@ class CreateReviews < ActiveRecord::Migration[5.1]
       t.string :nickname
       t.text :review
       t.integer :rating
+      t.string :track_id
 
       t.timestamps
     end

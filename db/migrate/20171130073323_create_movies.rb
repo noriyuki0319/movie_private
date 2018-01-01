@@ -8,6 +8,7 @@ class CreateMovies < ActiveRecord::Migration[5.1]
       t.text :information
       t.string :time
       t.string :category_id
+      t.string :track_id
 
       t.timestamps
     end

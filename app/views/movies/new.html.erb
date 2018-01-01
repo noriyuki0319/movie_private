@@ -47,9 +47,10 @@ $("#comments").toggle(2000)( flip++ % 2 == 0 );
   <%= movie.hidden_field :title, value: search["trackName"], readonly:true %>
   <%= movie.hidden_field :director, value: search["artistName"], readonly:true %>
   <%= movie.hidden_field :information, value: search["shortDescription"], readonly:true %>
-  <%= movie.hidden_field :category_id, value: search["primaryGenreName"], readonly: true %>
+  <%= movie.hidden_field :category_id, value: search["primaryGenreName"], readonly:true %>
+  <%= movie.hidden_field :track_id, value: search["trackId"], readonly:true %>
   <%= movie.hidden_field :time, value: @time, readonly:true %>
-  <%= movie.hidden_field :when, value: "#{@when.year}年#{@when.month}月", readonly: true %>
+  <%= movie.hidden_field :when, value: "#{@when.year}年#{@when.month}月", readonly:true %>
   <% end %>
 <% end %>
 

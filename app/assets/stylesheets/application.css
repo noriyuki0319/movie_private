@@ -54,9 +54,17 @@ body.body_user_devise:after {
 	margin-top: 5%;
 }
 
+th {
+  width: 10%;
+}
 
+td {
+  padding: 2px 0px 2px 25px;
+}
 
-
+.movie_table{
+  margin: 3% 0 3px 0;
+}
 
 
 

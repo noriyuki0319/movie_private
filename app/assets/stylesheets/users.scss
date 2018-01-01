@@ -39,5 +39,16 @@ body.body_user_show:after {
 }
 
 .user_movie_body{
-	margin-top: 5%;
+	margin: 5% 0% 5% 0%;
+}
+
+.user_show_link {
+  color: #00DD00;
+  float: right;
+  text-decoration: none;
+  margin: 30px 15px 0px 0px;
+}
+
+.user_show_link:hover {
+  color: #00FF00;
 }

@@ -63,7 +63,8 @@ end
   end
 
   def show
-    @movie = Movie.joins(:reviews).where(title: params[:keyword])
+    @movie = Movie.joins(:reviews).where(track_id: params[:keyword]).group("track_id")
+    @review = Review.where(track_id: params[:keyword])
   end
 
   def edit
@@ -75,7 +76,7 @@ end
     if @movie.save
       redirect_to user_path(@movie.user_id)
     else
-      redirect_back(fallback_location: new_movie_path,notice:'既にmemoに登録されています。他の映画を検索しましょう。')
+      redirect_back(fallback_location: new_movie_path,notice:'★ 既にmemoに登録されています。他の映画を検索しましょう。')
     end
   end
 
@@ -95,7 +96,7 @@ end
   end
 
   def movie_params
-    params.require(:movie).permit(:image, :title, :director, :staff, :information, :time, :category_id, :user_id, :when )
+    params.require(:movie).permit(:image, :title, :director, :staff, :information, :time, :category_id, :user_id, :when, :track_id )
   end
 
   def correct_user

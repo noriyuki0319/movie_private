@@ -14,8 +14,7 @@
     </div>
 
     <div class="star_review">
-        <% binding.pry %>
-      <% @movie.reviews.each do |re| %>
+      <% @review.each do |re| %>
         ニックネーム
         <%= re.nickname %>
         <div class="star-rating" data-score=<%= re.rating %>></div>

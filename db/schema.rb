@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20171224020706) do
     t.text "information"
     t.string "time"
     t.string "category_id"
+    t.string "track_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 20171224020706) do
     t.string "nickname"
     t.text "review"
     t.integer "rating"
+    t.string "track_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

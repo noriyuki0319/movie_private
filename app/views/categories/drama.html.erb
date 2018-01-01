@@ -9,7 +9,7 @@
         <%= movie.when %><br>
         <%= movie.time %><br>
         <%= movie.information %><br>
-        <%= link_to "レビューを見る", movie_path(movie.id, keyword: movie.title) %>
+        <%= link_to "レビューを見る", movie_path(movie.id, keyword: movie.track_id) %>
       </div>
     <% end %>
   </div>

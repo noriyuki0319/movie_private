@@ -25,13 +25,13 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    @review.update(review_params)
-    redirect_to review_path(@review.id)
+    @review.update(review_params_update)
+    redirect_to movie_review_path(@review.movie_id, @review.id)
   end
 
   def destroy
     @review.destroy
-    redirect_to movie_path(@review.movie_id)
+    redirect_to user_path(@review.user_id)
   end
 
   private
@@ -40,7 +40,11 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:review, :rating, :nickname).merge(movie_id: params[:movie_id])
+    params.require(:review).permit(:review, :rating, :nickname, :track_id).merge(movie_id: params[:movie_id])
+  end
+
+  def review_params_update
+    params.require(:review).permit(:review, :rating, :nickname, :track_id, :movie_id)
   end
 
 end
