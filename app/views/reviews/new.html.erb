@@ -1,7 +1,7 @@
 <body class = "body_user_show">
   <div class = "wrap_user_show">
 
-<h2 class="review_form">レビュー投稿</h2>
+    <h2 class="review_form">レビュー投稿</h2>
     <%= form_for( [@movie, @review] ) do |review| %>
       <p class="review_form">★ ニックネーム</p>
       <%= review.text_field :nickname, class: "...", :size => "40" %>
@@ -13,5 +13,6 @@
       <%= review.submit "投稿" %>
       <%= link_to "戻る", user_path(@movie.user_id), class: "review_new_link" %>
     <% end %>
-</div>
+
+  </div>
 </body>

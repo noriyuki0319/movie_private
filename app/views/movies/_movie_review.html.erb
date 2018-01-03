@@ -1,0 +1,85 @@
+<div id = 'movie_list'>
+  <div id = "movie_serach_list_jquery1">
+    <h1 class = "movie_list_text1">★ 新着レビュー</h1>
+
+    <div class = "movie_review_list">
+        <%= link_to image_tag(@review1.movie.image), new_movie_path(keyword: @review1.track_id, keyword2: "映画" + @review1.movie.title.delete("(（吹替字幕版）)")), class: "movie_review_image" %>
+      <div class ="movie_review_float">
+        <%= link_to @review1.movie.title, new_movie_path(keyword: @review1.track_id, keyword2: "映画" + @review1.movie.title.delete("(（吹替字幕版）)")), class: "movie_review_text" %>
+        <%= @review1.movie.information %>
+      </div>
+      <div class="box27">
+        <span class="box-title", style="color: black;"><%= @review1.nickname %> さんのレビュー</span>
+        <span class="star-rating" data-score=<%= @review1.rating %>></span>
+        <p><%= @review1.review %></p>
+      </div>
+    </div>
+
+    <div class = "movie_review_list">
+        <%= link_to image_tag(@review2.movie.image), new_movie_path(keyword: @review2.track_id, keyword2: "映画" + @review2.movie.title.delete("(（吹替字幕版）)")) %>
+      <div class ="movie_review_float">
+        <%= link_to @review2.movie.title, new_movie_path(keyword: @review2.track_id, keyword2: "映画" + @review2.movie.title.delete("(（吹替字幕版）)")), class: "movie_review_text" %>
+        <%= @review2.movie.information %>
+      </div>
+      <div class="box27">
+        <span class="box-title", style="color: black;"><%= @review2.nickname %> さんのレビュー</span>
+        <span class="star-rating" data-score=<%= @review2.rating %>></span>
+        <p><%= @review2.review %></p>
+      </div>
+    </div>
+
+    <div class = "movie_review_list">
+        <%= link_to image_tag(@review3.movie.image), new_movie_path(keyword: @review3.track_id, keyword2: "映画" + @review3.movie.title.delete("(（吹替字幕版）)")) %>
+      <div class ="movie_review_float">
+        <%= link_to @review3.movie.title, new_movie_path(keyword: @review3.track_id, keyword2: "映画" + @review3.movie.title.delete("(（吹替字幕版）)")), class: "movie_review_text" %>
+        <%= @review3.movie.information %>
+      </div>
+      <div class="box27">
+        <span class="box-title", style="color: black;"><%= @review3.nickname %> さんのレビュー</span>
+        <span class="star-rating" data-score=<%= @review3.rating %>></span>
+        <p><%= @review3.review %></p>
+      </div>
+    </div>
+
+    <div class = "movie_review_list">
+        <%= link_to image_tag(@review4.movie.image), new_movie_path(keyword: @review4.track_id, keyword2: "映画" + @review4.movie.title.delete("(（吹替字幕版）)")) %>
+      <div class ="movie_review_float">
+        <%= link_to @review4.movie.title, new_movie_path(keyword: @review4.track_id, keyword2: "映画" + @review4.movie.title.delete("(（吹替字幕版）)")), class: "movie_review_text" %>
+        <%= @review4.movie.information %>
+      </div>
+      <div class="box27">
+        <span class="box-title", style="color: black;"><%= @review4.nickname %> さんのレビュー</span>
+        <span class="star-rating" data-score=<%= @review4.rating %>></span>
+        <p><%= @review4.review %></p>
+      </div>
+    </div>
+
+    <div class = "movie_review_list">
+        <%= link_to image_tag(@review5.movie.image), new_movie_path(keyword: @review5.track_id, keyword2: "映画" + @review5.movie.title.delete("(（吹替字幕版）)")) %>
+      <div class ="movie_review_float">
+        <%= link_to @review5.movie.title, new_movie_path(keyword: @review5.track_id, keyword2: "映画" + @review5.movie.title.delete("(（吹替字幕版）)")), class: "movie_review_text" %>
+        <%= @review5.movie.information %>
+      </div>
+      <div class="box27">
+        <span class="box-title", style="color: black;"><%= @review5.nickname %> さんのレビュー</span>
+        <span class="star-rating" data-score=<%= @review5.rating %>></span>
+        <p><%= @review5.review %></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<script>
+$('.star-rating').raty({
+  number: 10,
+  path: '/assets/',
+  readOnly: true,
+  score: function () {
+    return $(this).attr('data-score');
+  }
+});
+</script>
+

@@ -24,6 +24,18 @@ nav{
   padding: 0% 10%;
 }
 
+.header_nav {
+  color: black;
+  text-decoration: none;
+  padding: 5px 5px 0 5px;
+  transition: .5s all ease-out;
+}
+
+.header_nav:hover {
+  color: white;
+  background-color: #FF9900;
+}
+
 body.body_user_devise {
   background-image: url(/assets/photo-camera.jpg);
   background-size: 100%;
@@ -61,14 +73,6 @@ th {
 td {
   padding: 2px 0px 2px 25px;
 }
-
-.movie_table{
-  margin: 3% 0 3px 0;
-}
-
-
-
-
 
 
 

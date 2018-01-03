@@ -3,16 +3,15 @@
 
 
 
-
-    <h1>新規投稿</h1>
+    <div class ="post_new">
+    <h2>新規投稿</h2>
 <%= form_for (@post) do |post| %>
-  タイトル
-  <%= post.text_field :title, class: "..." %>
+  <p class ="post_new_p">タイトル</p>
+  <%= post.text_field :title, size: "50", class: "..." %>
   <%= post.submit "保存", class: "..." %>
+<%= link_to "戻る", posts_path, class: "post_new_link" %>
 <% end %>
-
-<%= link_to "トークルーム", posts_path, class: "..." %>
-
+    </div>
 
 
   </div>

@@ -13,8 +13,11 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    @review.save
-    redirect_to movie_review_path(@review.movie_id, @review.id)
+    if @review.save
+      redirect_to movie_review_path(@review.movie_id, @review.id)
+    else
+      redirect_to new_movie_review_path(@review.movie_id)
+    end
   end
 
   def show

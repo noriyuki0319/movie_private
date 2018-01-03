@@ -1,38 +1,29 @@
 <body class = "body_post">
 
-
-
   <div class = "wrap1">
-
- 	<% if current_user.id == @post.user.id %>
-		<%= link_to "トークタイトルを削除する", post_path(@post.id), method: :delete, class: "talk_title_destroy", "data-confirm" => "タイトル および トーク内容の全てが削除されます。本当に削除しますか？" %>
-		<% end %>
-
-
-
-  <% if user_signed_in? %>
-    <div class = "talk_from" %>
-      <%= form_for( [@post, @comment] ) do |comment| %>
-        <%= comment.text_area :talk, class: "...", size: "50x5" %>
-        <%= comment.submit "投稿" %><br>
-        <%= link_to "一覧に戻る", posts_path, class: "talk_from_link_back" %>
+    <% if user_signed_in? %>
+     	<% if current_user.id == @post.user.id %>
+	    	<%= link_to "トークタイトルを削除する", post_path(@post.id), method: :delete, class: "talk_title_destroy", "data-confirm" => "タイトル および トーク内容の全てが削除されます。本当に削除しますか？" %>
       <% end %>
+      <div class = "talk_from" %>
+        <%= form_for( [@post, @comment] ) do |comment| %>
+          <%= comment.text_area :talk, class: "...", size: "50x5" %>
+          <%= comment.submit "投稿" %><br>
+          <%= link_to "一覧に戻る", posts_path, class: "talk_from_link_back" %>
+        <% end %>
+        </div>
+    <% else %>
+          <%= link_to "一覧に戻る", posts_path, class: "talk_from_link_back_notuser" %>
+    <% end %>
+    <div class = "clearfix">
+      <%= render :partial => 'talk_room' %>
     </div>
-  <% end %>
+  </div>
 
-
-
-<div class = "clearfix">
-  <%= render :partial => 'talk_room' %>
-</div>
-
-</div>
-
-<div class = "wrap2" %>
-  <h1 class = "h1_post" ><%= @post.title %></h1>
-  <%= render :partial => 'talk_room_twitter' %>
-</div>
-
+  <div class = "wrap2" %>
+    <h1 class = "h1_post" ><%= @post.title %></h1>
+    <%= render :partial => 'talk_room_twitter' %>
+  </div>
 
 </body>
 

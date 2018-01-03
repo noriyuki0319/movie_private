@@ -1,5 +1,6 @@
 <body class = "body_user_show">
-  <div class = "wrap_user_show">
+  <div class = "wrap_movie_show">
+
     <div class="movie_table">
       <% @movie.each do |movie| %>
         <%= link_to "戻る", categories_list_path(keyword: movie.category_id), class: "user_show_link" %>

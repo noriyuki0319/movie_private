@@ -23,8 +23,20 @@ body.body_movie_index:after {
 }
 
 .wrap_movie_index {
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
+}
+
+.wrap_movie_index1 {
+  width: 55%;
+  margin: 0 auto;
+  float: left;
+}
+
+.wrap_movie_index2 {
+  width: 43%;
+  margin: 0 auto;
+  float: right;
 }
 
 .movie_index_title {
@@ -45,13 +57,26 @@ body.body_movie_index:after {
   color: white;
 }
 
+#movie_serach_list_jquery1{
+  padding: 40px;
+  background-color: rgb(237, 228, 206);
+  border-radius: 40px;
+  color: black;
+  border-style: solid; border-width: 3px;
+}
+
 .movie_list_text{
   text-align: center;
   padding-bottom: 2%;
 }
 
+.movie_list_text1{
+  text-align: center;
+  padding-bottom: 5%;
+}
+
 .movie_list_search{
-  padding-bottom: 3%;
+  padding-bottom: 5%;
 }
 
 .movie_search_link {
@@ -152,6 +177,23 @@ body#body_movie_new {
 	margin: 6px 1% 2px 1%;
 }
 
+.movie_revie_image{
+  float: left;
+}
+
+.movie_review_float {
+  width: 85%;
+  float: right;
+}
+
+.movie_review_text {
+  color: #CC3300;
+  text-decoration: none;
+}
+
+.movie_review_text:hover {
+  color: #FF0033;
+}
 
 .wrap_tweet_list {
   background-image: url(/assets/portrait.png);
@@ -230,9 +272,13 @@ body.body_twitter:after {
 
 .twitter_search_list_text {
 	padding: 2% 3%;
-	
 }
 
 .twitter_search_list_text2 {
 	margin-bottom: 5%;
+}
+
+.wrap_movie_show {
+  width: 80%;
+  margin: 0 auto;
 }

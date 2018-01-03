@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/index'
   get "posts/google" => 'posts#google_map', as: "google_maps"
-  get "movies/sample"
-  get "/movies/search" => 'movies#twittersearch', as: "twitter_search"
-  get 'users/show'
+  get "categories/index", as: "categories"
+  get "categories/categories_list", as: "categories_list"
   devise_for :users
   resources :movies
   resources :users
@@ -14,9 +12,5 @@ Rails.application.routes.draw do
   resources :movies do
     resources :reviews
   end
-  root 'movies#index'
-
-  get "categories/index", as: "categories"
-  get "categories/categories_list", as: "categories_list"
-
+ root 'movies#index'
 end

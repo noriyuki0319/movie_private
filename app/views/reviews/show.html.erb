@@ -1,7 +1,7 @@
 <body class = "body_user_show">
   <div class = "wrap_user_show">
 
-    <div class="movie_table">
+    <div class="movie_table_show">
       <table>
         <tr>
           <th><%= image_tag @movie.image %></th>
@@ -27,15 +27,22 @@
     </div>
         <%= @movie.information %>
 
-  <div class="box27">
-    <% @movie.reviews.each do |re| %>
-      <span class="box-title"><%= re.nickname %> さんのレビュー</span>
-      <span class="star-rating" data-score=<%= re.rating %>></span>
-      <p><%= re.review %></p>
-    <% end %>
-  </div>
+    <div class="box27">
+      <% @movie.reviews.each do |re| %>
+        <span class="box-title"><%= re.nickname %> さんのレビュー</span>
+        <span class="star-rating" data-score=<%= re.rating %>></span>
+        <p><%= re.review %></p>
+      <% end %>
+    </div>
+    <%= link_to "レビューを削除", review_path(@review.id), method: :delete, class: "review_show_link", "data-confirm" => "本当に削除しますか？" %>
+    <%= link_to "レビューを編集", edit_movie_review_path(@movie, @review.id), class: "review_show_link" %>
+    <%= link_to "戻る", user_path(@movie.user_id), class: "review_show_link" %>
 
-  <script>
+  </div>
+</body>
+
+
+<script>
 $('.star-rating').raty({
   number: 10,
   path: '/assets/',
@@ -44,9 +51,5 @@ $('.star-rating').raty({
     return $(this).attr('data-score');
   }
 });
-  </script>
-</body>
+</script>
 
-<%= link_to "レビューを削除", review_path(@review.id), method: :delete, class: "review_show_link", "data-confirm" => "本当に削除しますか？" %>
-<%= link_to "レビューを編集", edit_movie_review_path(@movie, @review.id), class: "review_show_link" %>
-<%= link_to "戻る", user_path(@movie.user_id), class: "review_show_link" %>

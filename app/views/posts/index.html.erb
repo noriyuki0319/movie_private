@@ -3,23 +3,29 @@
 
     <h1 class = h1_post>トークテーマ一覧</h1>
 
-<% if user_signed_in? %>
-	<%= link_to "新しいトークテーマを作ろー！", new_post_path, class:"post_new_title" %>
-<% end %>
+    <div class = "clearfix">
+      <% if user_signed_in? %>
+	      <%= link_to "新しいトークテーマを作ろー！", new_post_path, class:"post_new_title" %>
+      <% end %>
+    </div>
 
-<br>
+    <div class = "post_index_left">
+      <div class = "clearfix">
+	      <% @posts.each do |post| %>
+		      <p class = "kaiwa-text, clearfix">
+			      <div class = "kaiwa-text-index">
+	    	      <%= link_to post.title, post_path(post.id), class: "kaiwa_text" %>
+	          </div>
+	        </p>
+        <% end %>
+      </div>
+      <%= paginate @posts %>
+    </div>
 
-<div class = "clearfix">
-	<% @posts.each do |post| %>
-		<p class = "kaiwa-text, clearfix">
-			<div class = "kaiwa-text-not-user">
-	    	<%= link_to post.title, post_path(post.id), class: "kaiwa_text" %>
-	    </div>
-	  </p>
-  <% end %>
-</div>
+    <div class = "post_index_right">
+      <%= render :partial => 'talk_room_nav' %>
+    </div>
 
   </div>
-<%= paginate @posts %>
 </body>
 

@@ -1,22 +1,22 @@
-  <% if user_signed_in? %>
-    <% @post.comments.each do |comment| %>
-      <p class = "kaiwa-text, clearfix">
-      <% if comment.user.id == current_user.id %>
-        <div class = "kaiwa-text-left" >
-        <%= link_to comment.talk, post_comment_path(post_id: @post.id ,id: comment.id), method: :delete, class: "kaiwa_text1", "data-confirm" => "トークを削除します。本当に宜しいですか？" %></p>
-      <% else %>
-        <div class = "kaiwa-text-right" >
-        <p class = "kaiwa_text2"><%= comment.talk %></p>
-      <% end %>
-        </div>
-      </p>
+<% if user_signed_in? %>
+  <% @post.comments.each do |comment| %>
+    <p class = "kaiwa-text, clearfix">
+    <% if comment.user.id == current_user.id %>
+      <div class = "kaiwa-text-left" >
+      <%= link_to comment.talk, post_comment_path(post_id: @post.id ,id: comment.id), method: :delete, class: "kaiwa_text1", "data-confirm" => "トークを削除します。本当に宜しいですか？" %></p>
+    <% else %>
+      <div class = "kaiwa-text-right" >
+      <p class = "kaiwa_text2"><%= comment.talk %></p>
     <% end %>
-  <% else %>
-    <% @post.comments.each do |comment| %>
-      <p class = "kaiwa-text, clearfix">
-        <div class = "kaiwa-text-not-user">
-          <p class = "kaiwa_text2"><%= comment.talk %></p>
-        </div>
-      </p>
-    <% end %>
+      </div>
+    </p>
   <% end %>
+<% else %>
+  <% @post.comments.each do |comment| %>
+    <p class = "kaiwa-text, clearfix">
+      <div class = "kaiwa-text-not-user">
+        <p class = "kaiwa_text2"><%= comment.talk %></p>
+      </div>
+    </p>
+  <% end %>
+<% end %>

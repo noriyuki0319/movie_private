@@ -1,59 +1,56 @@
 <body class = "body_movie_index">
 
-
-<p id="notice"><%= notice %></p>
-<div class = "movie_index_title">
-  <h1>★ 好きな映画・気になる映画を調べちゃお〜！</h1>
-</div>
-
-
-
-<div class = "wrap_movie_index">
-
-
-
-<div class='content'>
-  <div id="search-movie">
-    <%= form_tag('/', method: :get) do %>
-        <%= text_field_tag :movie, "",  id: "movie_search", name: "keyword", placeholder: "キーワードを打ち込んでください", style: "width: 400px;" "height: 20px;"%><button title="検索" type="submit">検索</button>
-    <% end %>
+  <p id="notice"><%= notice %></p>
+  <div class = "movie_index_title">
+    <h1>★ 好きな映画・気になる映画を調べましょう！</h1>
   </div>
-  <div id='movie_list'>
-     <% if @searches.present? %>
-      <div id = "movie_serach_list_jquery" style="display: none">
-      <h2 class = "movie_list_text">検索結果</h2>
-     <% @searches.each do |search| %>
-      <div class = "movie_list_search">
-        <%= link_to image_tag(search["artworkUrl100"]), new_movie_path(keyword: search["trackId"], keyword2: "映画" + search["trackName"].delete("(（吹替字幕版）)")) %>
-        <%= link_to search["trackName"], new_movie_path(keyword: search["trackId"], keyword2: "映画" + search["trackName"].delete("(（吹替字幕版）)")), class: "movie_search_link" %><br>
-       <%= search["shortDescription"] %><br>
+
+  <div class = "wrap_movie_index">
+
+    <div class ="wrap_movie_index1">
+      <div class='content'>
+        <div id="search-movie">
+          <%= form_tag('/', method: :get) do %>
+            <%= text_field_tag :movie, "",  id: "movie_search", name: "keyword", placeholder: "キーワードを打ち込んでください", style: "width: 400px;" "height: 20px;"%><button title="検索" type="submit">検索</button>
+          <% end %>
+        </div>
+        <div id='movie_list'>
+          <% if @searches.present? %>
+            <div id = "movie_serach_list_jquery" style="display: none">
+              <h2 class = "movie_list_text">検索結果</h2>
+              <% @searches.each do |search| %>
+                <div class = "movie_list_search">
+                  <%= link_to image_tag(search["artworkUrl100"]), new_movie_path(keyword: search["trackId"], keyword2: "映画" + search["trackName"].delete("(（吹替字幕版）)")) %>
+                  <%= link_to search["trackName"], new_movie_path(keyword: search["trackId"], keyword2: "映画" + search["trackName"].delete("(（吹替字幕版）)")), class: "movie_search_link" %><br>
+                  <%= search["shortDescription"] %><br>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+        <div id = 'movie_list'>
+          <% if @recommend1.present? %>
+            <div id = "movie_serach_list_jquery" style="display: none">
+              <h2 class = "movie_list_text"><%= @current_user.email %>さんへのおすすめ映画です</h2>
+              <% @recommend1.each do |re| %>
+                <div class = "movie_list_search">
+                  <%= link_to image_tag(re["artworkUrl100"]), new_movie_path(keyword: re["trackId"], keyword2: "映画" + re["trackName"].delete("(（吹替字幕版）)")) %>
+                  <%= link_to re["trackName"],  new_movie_path(keyword: re["trackId"], keyword2: "映画" + re["trackName"].delete("(（吹替字幕版）)")), class: "movie_search_link" %><br>
+                  <%= re["shortDescription"] %><br>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <% end %>
     </div>
-    <% end %>
-  </div>
 
-  <div id = 'movie_list'>
-    <% if @recommend1.present? %>
-    <div id = "movie_serach_list_jquery" style="display: none">
-       <h2 class = "movie_list_text"><%= @current_user.email %>さんへのおすすめ映画です</h2>
-    <% @recommend1.each do |re| %>
-      <div class = "movie_list_search">
-        <%= link_to image_tag(re["artworkUrl100"]), new_movie_path(keyword: re["trackId"], keyword2: "映画" + re["trackName"].delete("(（吹替字幕版）)")) %>
-        <%= link_to re["trackName"],  new_movie_path(keyword: re["trackId"], keyword2: "映画" + re["trackName"].delete("(（吹替字幕版）)")), class: "movie_search_link" %><br>
-        <%= re["shortDescription"] %><br>
-      </div>
-    <% end %>
+    <div class = "wrap_movie_index2">
+      <%= render partial: 'movie_review' %>
     </div>
-    <% end %>
+
   </div>
-</div>
-
-
-
-
-
-</div>
 </body>
 
 <script>
@@ -69,8 +66,8 @@ $("#movie_serach_list_jquery").toggle(1500)( flip++ % 2 == 0 );
 });
 </script>
 <script>
-  $(function () {
-  var num = Math.ceil(5 * Math.random());
-  $('#body_movie_new').addClass('background' + num);
+$(function () {
+var num = Math.ceil(5 * Math.random());
+$('#body_movie_new').addClass('background' + num);
 });
 </script>

@@ -1,49 +1,46 @@
 <body class = "body_user_show">
   <div class = "wrap_user_show">
 
-
     <%= link_to user_path(@user) do %>
       <div class="text_user">メモ数</div>
       <div class="num_user"><%= @user.movies.count %></div>
     <% end %>
 
-
-<% @user.movies.each do |movie| %>
-  <div class="user_movie_body">
-        <%= link_to "★ メモを削除", movie_path(movie.id), method: :delete, class: "user_show_link", "data-confirm" => "レビューがある場合、同様に削除されます。本当に削除しますか？" %>
-    <% if movie.reviews.present? %>
-      <%= link_to "★ レビュー詳細", movie_review_path(movie, movie.reviews.target), class: "user_show_link" %>
-    <% else %>
-      <%= link_to "★ 映画を見ましたか？", new_movie_review_path(movie), class: "user_show_link" %>
-    <% end %>
+    <% @user.movies.each do |movie| %>
+      <div class="user_movie_body">
+          <%= link_to "★ メモを削除", movie_path(movie.id), method: :delete, class: "user_show_link", "data-confirm" => "レビューがある場合、同様に削除されます。本当に削除しますか？" %>
+        <% if movie.reviews.present? %>
+          <%= link_to "★ レビュー詳細", movie_review_path(movie, movie.reviews.target), class: "user_show_link" %>
+        <% else %>
+          <%= link_to "★ 映画を見ましたか？", new_movie_review_path(movie), class: "user_show_link" %>
+        <% end %>
         <div class="movie_table">
-      <table>
-        <tr>
-          <th><%= image_tag movie.image %></th>
-          <td><%= movie.title %></td>
-        </tr>
-        <tr>
-          <th>監督</th>
-          <td><%= movie.director %></td>
-        </tr>
-        <tr>
-          <th>ジャンル</th>
-          <td><%= movie.category_id %></td>
-        </tr>
-        <tr>
-          <th>リリース日</th>
-          <td><%= movie.when %></td>
-        </tr>
-        <tr>
-          <th>再生時間</th>
-          <td><%= movie.time %> 日</td>
-        </tr>
-      </table>
-    </div>
+          <table>
+            <tr>
+              <th><%= image_tag movie.image %></th>
+              <td><%= movie.title %></td>
+            </tr>
+            <tr>
+              <th>監督</th>
+              <td><%= movie.director %></td>
+            </tr>
+            <tr>
+              <th>ジャンル</th>
+              <td><%= movie.category_id %></td>
+            </tr>
+            <tr>
+              <th>リリース日</th>
+              <td><%= movie.when %></td>
+            </tr>
+            <tr>
+              <th>再生時間</th>
+              <td><%= movie.time %> 日</td>
+            </tr>
+          </table>
+        </div>
         <%= movie.information %>
+      </div>
+    <% end %>
 
   </div>
-<% end %>
-
-</div>
 </body>

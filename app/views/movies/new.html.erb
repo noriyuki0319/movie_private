@@ -1,7 +1,57 @@
 <body id = "body_movie_new">
   <div class = "wrap_movie_new">
 
-<div id="comments" style="display: none"><%= render partial: 'tweet_list' %></div>
+    <div id="comments" style="display: none"><%= render partial: 'tweet_list' %></div>
+      <h1 class = "movie_new_tittle">作品紹介</h1>
+
+    <div class = "clearfix">
+      <h3 class="notice_movie_new"><%= notice %></h3>
+      <button class = "movie_new_button1">check out!</button><p class = "movie_new_button">★ この映画に対するつぶやきを見てみよう！ ※ネタバレには注意！！</p>
+    </div>
+
+    <%= form_for (@movie) do |movie| %>
+      <% @search.each do |search| %>
+        <% if search["trackTimeMillis"].present? %>
+          <% @time = (Time.parse("1/1") + search["trackTimeMillis"]/1000).strftime("%-H時間%-M分") %>
+        <% end %>
+        <% @when = search["releaseDate"].to_time %>
+
+        <%= movie.submit "memo", class: "movie_new_submit1" %><p class = "movie_new_submit">★ この映画を気に入りましたか？ 気に入ったら忘れないようにメモしておこう！</p><br>
+
+        <% if search["previewUrl"].present? %>
+          <%= video_tag search["previewUrl"], class: "movie-movie", :autoplay => true, :controls => true %><br>
+        <% end %>
+        <div class = "movie-shortdescription"><%= search["shortDescription"] %></div><br>
+        タイトル<br>
+        <div class = "movie-trackname"><%= search["trackName"] %></div><br>
+        <div class = "movie-artistname">監督 : <%= search["artistName"] %></div><br>
+        <%= image_tag search["artworkUrl100"], class: "movie-artwork" %><br>
+        <div class = "movie-when">リリース日 : <%= "#{@when.year}年#{@when.month}月" %></div><br>
+        <div class = "movie-time">上映時間 : <%= @time %></div><br>
+        <div class = "movie-primary">カテゴリー : <%= search["primaryGenreName"] %></div><br>
+        ムービー紹介<br>
+        <div class = "movie-longdescription"><%= search["longDescription"] %></div><br>
+
+        <%= movie.hidden_field :image, value: search["artworkUrl100"], readonly:true %>
+        <%= movie.hidden_field :title, value: search["trackName"], readonly:true %>
+        <%= movie.hidden_field :director, value: search["artistName"], readonly:true %>
+        <%= movie.hidden_field :information, value: search["shortDescription"], readonly:true %>
+        <%= movie.hidden_field :category_id, value: search["primaryGenreName"], readonly:true %>
+        <%= movie.hidden_field :track_id, value: search["trackId"], readonly:true %>
+        <%= movie.hidden_field :time, value: @time, readonly:true %>
+        <%= movie.hidden_field :when, value: "#{@when.year}年#{@when.month}月", readonly:true %>
+      <% end %>
+    <% end %>
+
+  </div>
+</body>
+
+<script>
+(function ($) {
+var num = Math.ceil(5 * Math.random());
+$('#body_movie_new').addClass('background' + num);
+})(jQuery);
+</script>
 <script>
 var flip = 0;
 $("button").click(function () {
@@ -9,63 +59,6 @@ $("#comments").toggle(2000)( flip++ % 2 == 0 );
 });
 </script>
 
-<h1 class = "movie_new_tittle">作品紹介</h1>
-
-<div class = "clearfix">
-  <h3 class="notice_movie_new"><%= notice %></h3>
-<button class = "movie_new_button1">check out!</button><p class = "movie_new_button">★ この映画に対するつぶやきを見てみよう！ ※ネタバレには注意！！</p>
-</div>
-
-<%= form_for (@movie) do |movie| %>
-<% @search.each do |search| %>
-  <% @time = (Time.parse("1/1") + search["trackTimeMillis"]/1000).strftime("%-H時間%-M分") %>
-  <% @when = search["releaseDate"].to_time %>
-
-<%= movie.submit "memo", class: "movie_new_submit1" %><p class = "movie_new_submit">★ この映画を気に入りましたか？ 気に入ったら忘れないようにメモしておこう！</p><br>
-
-
-  <%= video_tag search["previewUrl"], class: "movie-movie", :autoplay => true, :controls => true %><br>
-  <div class = "movie-shortdescription"><%= search["shortDescription"] %></div><br>
-  タイトル<br>
-  <div class = "movie-trackname"><%= search["trackName"] %></div><br>
-  <div class = "movie-artistname">監督 : <%= search["artistName"] %></div><br>
-  <%= image_tag search["artworkUrl100"], class: "movie-artwork" %><br>
-  <div class = "movie-when">リリース日 : <%= "#{@when.year}年#{@when.month}月" %></div><br>
-  <div class = "movie-time">上映時間 : <%= @time %></div><br>
-  <div class = "movie-primary">カテゴリー : <%= search["primaryGenreName"] %></div><br>
-  ムービー紹介<br>
-  <div class = "movie-longdescription"><%= search["longDescription"] %></div><br>
-
-
-
-
-
-
-
-
-  <%= movie.hidden_field :image, value: search["artworkUrl100"], readonly:true %>
-  <%= movie.hidden_field :title, value: search["trackName"], readonly:true %>
-  <%= movie.hidden_field :director, value: search["artistName"], readonly:true %>
-  <%= movie.hidden_field :information, value: search["shortDescription"], readonly:true %>
-  <%= movie.hidden_field :category_id, value: search["primaryGenreName"], readonly:true %>
-  <%= movie.hidden_field :track_id, value: search["trackId"], readonly:true %>
-  <%= movie.hidden_field :time, value: @time, readonly:true %>
-  <%= movie.hidden_field :when, value: "#{@when.year}年#{@when.month}月", readonly:true %>
-  <% end %>
-<% end %>
-
-
-
-
-  </div>
-</body>
-
-<script>
-  (function ($) {
-  var num = Math.ceil(5 * Math.random());
-  $('#body_movie_new').addClass('background' + num);
-})(jQuery);
-</script>
 
 
 

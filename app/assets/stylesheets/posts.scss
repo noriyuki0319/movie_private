@@ -33,6 +33,18 @@ body.body_post:after {
   float: right;
 }
 
+.post_index_left{
+  width: 70%;
+  float: left;
+  margin-top: 30px;
+}
+
+.post_index_right{
+  width: 29%;
+  float: right;
+  margin-top: 60px;
+}
+
 .h1_post {
   font-size: 30px;
 	color: $color-pink;
@@ -42,14 +54,37 @@ body.body_post:after {
 
 .post_new_title {
   text-decoration: none;
-  color: #33CC33;
+  color: #00DD00;
   float: right;
+}
+
+.post_new_title:hover {
+  color: #00FF00;
 }
 
 .talk_title_destroy {
   float: right;
   text-decoration: none;
   color: #33CC33;
+}
+
+.post_new {
+  color: white;
+  margin: 5% 0 2% 0;
+}
+
+.post_new_p {
+  margin: 1% 0 1% 0;
+}
+
+.post_new_link{
+  color: #00DD00;
+  text-decoration: none;
+  margin-left: 1%;
+}
+
+.post_new_link:hover {
+  color: #00FF00;
 }
 
 .talk_from {
@@ -61,6 +96,18 @@ body.body_post:after {
   font-size: 3px;
   margin: 1% 0% 0% 1%;
   text-decoration: none;
+}
+
+.talk_from_link_back_notuser {
+  color: white;
+  font-size: 15px;
+  float: left;
+  margin: 0px 0px 8px 110px;
+  text-decoration: none;
+}
+
+.talk_from_link_back:hover {
+  color: blue;
 }
 
 /*--------------------
@@ -100,6 +147,32 @@ p.kaiwa_text2 {
   word-wrap: break-all;
 }
 
+.kaiwa-text-index {
+  position: relative;
+  padding: 6px 10px 6px 10px;
+  border-radius: 10px;
+  background: #9cd6e7;
+  margin-bottom: 1%;
+  float: left;
+}
+
+/* 左の三角形を作る */
+.kaiwa-text-index:before {
+  position: absolute;
+  content: '';
+  border: 10px solid transparent;
+  top: 15px;
+  left: -20px;
+}
+
+.kaiwa-text-index:after {
+  position: absolute;
+  content: '';
+  border: 10px solid transparent;
+  border-right: 10px solid #9cd6e7;
+  top: 7px;
+  left: -19px;
+}
 
 /* 左からの吹き出しテキスト */
 .kaiwa-text-left {
@@ -174,7 +247,7 @@ p.kaiwa-text:last-child {
 
 .kaiwa-text-not-user {
   position: relative;
-  margin-left: 80px;
+  margin-left: 200px;
   padding: 6px 10px 6px 10px;
   border-radius: 10px;
   background: #9cd6e7;
