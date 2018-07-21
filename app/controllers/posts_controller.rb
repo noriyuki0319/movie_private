@@ -21,8 +21,8 @@ class PostsController < ApplicationController
   def show
     client = Twitter::REST::Client.new do |config|
       # 事前準備で取得したキーのセット
-      config.consumer_key         = "UPcnTR1QtCePddkiKYAcOdzBI"
-      config.consumer_secret      = "NMMBD5drfR7kORj3wYWGJehDosut1s11KlO1v6be4aAxMsGh1L"
+      config.consumer_key         = ""
+      config.consumer_secret      = ""
     end
     @comment = Comment.new
     @xxx = @post.comments

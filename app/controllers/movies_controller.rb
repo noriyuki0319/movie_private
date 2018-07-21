@@ -41,9 +41,8 @@ class MoviesController < ApplicationController
     @movie = Movie.new
 
     client = Twitter::REST::Client.new do |config|
-      # 事前準備で取得したキーのセット
-      config.consumer_key         = "UPcnTR1QtCePddkiKYAcOdzBI"
-      config.consumer_secret      = "NMMBD5drfR7kORj3wYWGJehDosut1s11KlO1v6be4aAxMsGh1L"
+      config.consumer_key         = ""
+      config.consumer_secret      = ""
     end
     if params[:keyword2].present?
       @result_tweets = client.search(params[:keyword2], count: 30, result_type: "recent", exclude: "retweets" )
